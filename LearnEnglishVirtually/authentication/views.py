@@ -64,13 +64,23 @@ def loginFunction(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
             form = LoginForm(request = request,data = request.POST)
-            if form.is_valid():
-                print("Worked")
-                username = form.cleaned_data['username']
-                pas = form.cleaned_data['password']
-                usr = authenticate(username= username,password=pas)
-                login(request,usr)
-                return HttpResponseRedirect('/home/')
+            print("before entering")
+            username = request.POST['username']
+            if '@gmail.com' in username:
+                    print(User.objects.all())
+                    get_user_obj = User.objects.get(email = username)
+                    username = get_user_obj.username
+            pas = request.POST['password']
+            usr = authenticate(username= username,password=pas)
+            login(request,usr)
+            return HttpResponseRedirect('/home/')
+            # if form.is_valid():
+            #     print("Worked")
+            #     username = form.cleaned_data['username']
+            #     pas = form.cleaned_data['password']
+            #     usr = authenticate(username= username,password=pas)
+            #     login(request,usr)
+            #     return HttpResponseRedirect('/home/')
         else:
             form = LoginForm()
         return render(request,'html/login.html',{'form':form})
