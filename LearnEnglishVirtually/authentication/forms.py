@@ -22,5 +22,5 @@ class UserCreation(UserCreationForm):
         
 
 class LoginForm(AuthenticationForm):
-    username = UsernameField(widget=forms.TextInput(attrs={"placeholder":"Username",'class':'form-control'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"password",'autocomplete':'current-password','class':'form-control'}))    
+    username = UsernameField(widget=forms.TextInput(attrs={"placeholder":"Username",'class':'','id':'your_name'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"password",'autocomplete':'current-password','class':'','id':'your_pass'}))    
