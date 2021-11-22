@@ -22,7 +22,6 @@ def registerFunction(request):
 def loginFunction(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
-            print("suman raj khanal")
             form = LoginForm(request = request,data = request.POST)
             if form.is_valid():
                 print("Worked")
