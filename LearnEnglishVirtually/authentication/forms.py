@@ -24,3 +24,7 @@ class UserCreation(UserCreationForm):
 class LoginForm(AuthenticationForm):
     username = UsernameField(widget=forms.TextInput(attrs={"placeholder":"Username",'class':'','id':'your_name'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder":"password",'autocomplete':'current-password','class':'','id':'your_pass'}))    
+
+
+class VerifyForm(forms.Form):
+    otp = forms.CharField(label='OTP',max_length=70,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'OTP','required':True}),error_messages={'required':'Enter a otp'})
