@@ -34,7 +34,7 @@ class LoginForm(AuthenticationForm):
 
 
 class VerifyForm(forms.Form):
-    otp = forms.CharField(label='OTP',max_length=70,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'OTP','required':True}),error_messages={'required':'Enter a otp'})
+    otp = forms.CharField(label='OTP',max_length=70,widget=forms.TextInput(attrs={'class':'form-control','placeholder':'One Time Password','required':True}),error_messages={'required':'One Time Password is Required'})
 
 class ChangePasswordUserForm(PasswordChangeForm):
     old_password = forms.CharField(label=_("Password"),strip=False,widget=forms.PasswordInput(attrs={'autocomplete':'new-password','class':'','placeholder':'old password'}),error_messages={"required":"Old Password Field is required"})
