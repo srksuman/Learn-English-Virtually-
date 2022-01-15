@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, forms, login, logout
 from django.shortcuts import render
-from .forms import UserCreation,LoginForm,VerifyForm
+from .forms import UserCreation,LoginForm,VerifyForm,ChangePasswordUserForm
 from django.contrib import messages
 from django.conf import settings
 from django.http import HttpResponseRedirect
@@ -132,4 +132,21 @@ def home(reqest):
 
 def logoutFun(request):
     logout(request)
-    return HttpResponseRedirect('/')
+    return HttpResponseRedirect('/login/')
+
+
+def changePassword(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            changePasswordForm = ChangePasswordUserForm(user=request.user,data= request.POST)
+            if changePasswordForm.is_valid():
+                changePasswordForm.save()
+                messages.success(request,"Your password is changed successfully,")
+                return HttpResponseRedirect('/login/')
+                
+        else:
+            changePasswordForm = ChangePasswordUserForm(user=request.user)
+        return render(request,'html/changePassword.html',{'form':changePasswordForm})
+    else:
+        return HttpResponseRedirect('/login/')
+
