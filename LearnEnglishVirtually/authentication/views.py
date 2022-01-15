@@ -116,7 +116,7 @@ def verifyUser(request):
                     messages.success(request,'Account is created successfully!')
                     return HttpResponseRedirect('/verify/')   
                 else:
-                    messages.success(request,'Entered OTO is wrong')
+                    messages.success(request,'One Time Password is wrong')
                     return HttpResponseRedirect('/verify/')
         else:            
             form = VerifyForm()
