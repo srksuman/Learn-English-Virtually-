@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, forms, login, logout
 from django.shortcuts import render
-from .forms import UserCreation,LoginForm,VerifyForm,ChangePasswordUserForm
+from .forms import UserCreation,LoginForm,VerifyForm,ChangePasswordUserForm,UserUpdateForm
 from django.contrib import messages
 from django.conf import settings
 from django.http import HttpResponseRedirect
@@ -151,5 +151,9 @@ def changePassword(request):
         return HttpResponseRedirect('/login/')
 
 def updateUserProfile(request):
-    return render(request,'html/updateProfile.html')
+    if request.user.is_authenticated:
+        form = UserUpdateForm(instance= request.user)
+        return render(request,'html/updateProfile.html',{'form':form})
+    else:
+        return HttpResponseRedirect('/login/')
 

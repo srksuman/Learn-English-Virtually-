@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Update Profile</h2>
+                        <h3 class="form-title">Update {{request.user.username}}'s Profile</h3>
                         <form method="POST" class="register-form" id="register-form" novalidate>
                         {% csrf_token %}
                             <div class="form-group">
@@ -36,19 +36,7 @@
                                 {{form.email}}
                                 <small class="text-danger">{{form.email.errors|striptags}}</small>
                             </div>
-                            <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                {{form.password1}}
-                                <small class="text-danger">{{form.password1.errors|striptags}}</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                {{form.password2}}
-                                <small class="text-danger">{{form.password2.errors|striptags}}</small>
-                               
-                            </div>
-
-                            
+                           
                          
                             <div class="text-danger mt-3">
            {% for error in  form.non_field_errors  %}
@@ -61,7 +49,9 @@
                         </form>
                     </div>
                     <div class="signup-image">
+                        Date Joined:- {{request.user.date_joined}}
                         <figure><img src="{% static 'images/signup-image.jpg' %}" alt="sing up image"></figure>
+                        Last Login:- {{request.user.last_login}}
                         <a href="{% url 'home' %}" class="signup-image-link">Cancel</a>
                     </div>
                 </div>

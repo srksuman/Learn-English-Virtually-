@@ -41,3 +41,11 @@ class ChangePasswordUserForm(PasswordChangeForm):
     new_password1 =forms.CharField(label=_("Password"),strip=False,widget=forms.PasswordInput(attrs={'autocomplete':'new-password','class':'','placeholder':'new password'}),error_messages={"required":"New Password Field is  required"}) 
     new_password2 =forms.CharField(label=_("Password"),strip=False,widget=forms.PasswordInput(attrs={'autocomplete':'new-password','class':'','placeholder':'confirm password'}),error_messages={"required":"Confirm Field is  required"}) 
     
+
+class UserUpdateForm(UserChangeForm):
+    password = None
+    email = forms.CharField(widget=forms.EmailInput(attrs={"required":True,"Placeholder":"Email",'autocomplete':'username','id':'email','disabled':True}),validators=[validate_email])
+
+    class Meta:
+        model = User
+        fields = ['username','first_name','last_name','email','date_joined','last_login']
