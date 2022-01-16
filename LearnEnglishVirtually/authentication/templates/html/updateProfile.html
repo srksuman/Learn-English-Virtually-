@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'css/login.css' %}">{% endblock css %}
+{% block content %}
+ <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Update Profile</h2>
+                        <form method="POST" class="register-form" id="register-form" novalidate>
+                        {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                {{form.username}}
+                                <small class="text-danger">{{form.username.errors|striptags}}</small>
+                                
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                {{form.first_name}}
+                                <small class="text-danger">{{form.first_name.errors|striptags}}</small>
+                                
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                {{form.last_name}}
+                                <small class="text-danger">{{form.last_name.errors|striptags}}</small>
+                                
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                {{form.email}}
+                                <small class="text-danger">{{form.email.errors|striptags}}</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                {{form.password1}}
+                                <small class="text-danger">{{form.password1.errors|striptags}}</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                {{form.password2}}
+                                <small class="text-danger">{{form.password2.errors|striptags}}</small>
+                               
+                            </div>
+
+                            
+                         
+                            <div class="text-danger mt-3">
+           {% for error in  form.non_field_errors  %}
+         {{error}}
+  {% endfor %}
+           </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Update"/>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="{% static 'images/signup-image.jpg' %}" alt="sing up image"></figure>
+                        <a href="{% url 'home' %}" class="signup-image-link">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock content %}

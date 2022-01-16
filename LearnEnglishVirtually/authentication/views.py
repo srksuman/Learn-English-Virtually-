@@ -150,3 +150,6 @@ def changePassword(request):
     else:
         return HttpResponseRedirect('/login/')
 
+def updateUserProfile(request):
+    return render(request,'html/updateProfile.html')
+
