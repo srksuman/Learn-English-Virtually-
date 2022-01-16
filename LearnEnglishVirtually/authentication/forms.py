@@ -48,4 +48,4 @@ class UserUpdateForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ['username','first_name','last_name','email','date_joined','last_login']
+        fields = ['username','first_name','last_name','email','last_login','date_joined']

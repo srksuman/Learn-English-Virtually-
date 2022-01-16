@@ -152,7 +152,24 @@ def changePassword(request):
 
 def updateUserProfile(request):
     if request.user.is_authenticated:
-        form = UserUpdateForm(instance= request.user)
+        if request.method == 'POST':
+            form = UserUpdateForm(request.POST,instance= request.user)
+            uname = request.POST['username']
+            fname = request.POST['first_name']
+            lname = request.POST['last_name']
+            # checkUname = User.objects.filter(username=uname)
+            # if(checkUname):
+            #     if(checkUname.email == request.user.email ):
+            #         print("success")
+            User.objects.filter(email=request.user.email).update(username=uname,first_name=fname,last_name=lname)
+            messages.success(request,"Your profile is updated successfully")
+            if form.is_valid():
+                User.objects.filter(username=request.user.username).update(username="sumanraj")
+                form.save()
+                messages.success(request,"Your profile is updated successfully")
+                return HttpResponseRedirect('/updateUserProfile/')
+        else:        
+            form = UserUpdateForm(instance= request.user)
         return render(request,'html/updateProfile.html',{'form':form})
     else:
         return HttpResponseRedirect('/login/')
