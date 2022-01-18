@@ -34,7 +34,26 @@ nlu:
   examples: |
      - What's up? 
 
-# - intent: gossip
+- intent: info_bot
+  examples: |
+      - Who made you?
+      - How you were made?
+
+- intent: who_made_info
+  examples: |
+      - Suman Raj Khanal
+      - srk
+      - suman
+      - do you know suman
+      - do you know suman raj khanal
+
+- intent: how_made
+  examples: |
+       - python
+       - rasa
+       - are you made using ?
+       - RASA-NLU
+       - Who are you?
 
 - intent: goodbye
   examples: |

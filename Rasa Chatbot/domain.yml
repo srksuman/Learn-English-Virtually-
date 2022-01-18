@@ -11,19 +11,49 @@ intents:
   - greetingsOne
   - greetingsTwo
   - greetingsThree
+  - info_bot
+  - who_made_info
+  - how_made
 
 responses:
+  utter_who_made_info:
+  - text: "Data scientist Mr.Suman Raj Khanal made me!!. To view full details [Click me](http://sumanrajkhanal.com.np/)"
+    image: "https://pbs.twimg.com/profile_images/1307239678999814144/AazSZxIL_400x400.jpg"
+
+  utter_how_made:
+  - text: "Im made using python Programmng language"
+  - text: "I am just an artificial intelligence."
+
   utter_greet:
   - text: "Hey! How are you?"
 
+  utter_info_bot:
+  - text: "Information:"
+    buttons: 
+        - title: "Who made me ?"
+          payload: "/who_made_info"
+        - title: "How im made ?"
+          payload: "/how_made"
+
   utter_greetingsOne:
   - text: Fine, and you? 
+  - text: Good
+  - text: fine
+  - text: Could be better.
+  - text: Not so great
+  - text: Very well, thanks
 
   utter_greetingsTwo:
-  - text: Thank you!, Nice to meet you too. And the rest of the day to you.
+  - text: Thank you!, Nice to meet you too.
+  - text: And the rest of the day to you.
+  - text: Thank you. You too.
+  - text: Thank you kindly.
 
   utter_greetingsThree:
   - text: The sky's up but I'm fine thanks. What about you?
+  - text: Nothing much.
+  - text: Not much, how about you?
+  - text: Not too much.
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
