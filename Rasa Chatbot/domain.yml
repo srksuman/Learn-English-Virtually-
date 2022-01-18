@@ -8,10 +8,22 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - greetingsOne
+  - greetingsTwo
+  - greetingsThree
 
 responses:
   utter_greet:
   - text: "Hey! How are you?"
+
+  utter_greetingsOne:
+  - text: Fine, and you? 
+
+  utter_greetingsTwo:
+  - text: Thank you!, Nice to meet you too. And the rest of the day to you.
+
+  utter_greetingsThree:
+  - text: The sky's up but I'm fine thanks. What about you?
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"

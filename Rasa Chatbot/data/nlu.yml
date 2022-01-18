@@ -17,6 +17,25 @@ nlu:
     - goodevening
     - good afternoon
 
+- intent: greetingsOne
+  examples: |
+    - Hi, How is it going?
+    - How are you doing?
+    - Hi, How is it going?
+    - How is it going?
+
+- intent: greetingsTwo
+  examples: |
+    - Nice to meet you
+    - It is a pleasure to meet you
+    - Top of the morning to you!
+
+- intent: greetingsThree
+  examples: |
+     - What's up? 
+
+# - intent: gossip
+
 - intent: goodbye
   examples: |
     - cu
@@ -59,6 +78,8 @@ nlu:
     - I am feeling very good
     - I am great
     - I am amazing
+    - fine
+    - I am fine
     - I am going to save the world
     - super stoked
     - extremely good
