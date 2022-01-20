@@ -9,3 +9,7 @@ class PreRegistration(models.Model):
     password1 = models.CharField(max_length=100)
     password2 = models.CharField(max_length=100)
     otp = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.username
+    
