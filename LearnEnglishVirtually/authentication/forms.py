@@ -10,7 +10,6 @@ def validate_username(value):
         raise forms.ValidationError(f"Your username cannot be of {len(value)}  word")
 
 def validate_email(value):
-    print('Email error check')
     email = User.objects.filter(email=value)
     if email:
         raise forms.ValidationError(f"This '{value}' email already exists!!!!!!! ")
