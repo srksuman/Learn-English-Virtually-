@@ -32,8 +32,7 @@ class TestURL(TestCase):
         self.assertEqual(resolve(reverse('password_reset_done')).func.view_class,auth_views.PasswordResetDoneView)
 
     def test_password_reset_confirm(self):
-        url = reverse('password_reset_confirm',args=['uidb64','token'])
-        self.assertEqual(resolve(url).func.view_class,auth_views.PasswordResetConfirmView)
+        self.assertEqual(resolve(reverse('password_reset_confirm',args=['uidb64','token'])).func.view_class,auth_views.PasswordResetConfirmView)
     
     def test_password_reset_complete(self):
         url = reverse('password_reset_complete')

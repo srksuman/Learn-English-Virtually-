@@ -64,7 +64,6 @@ def loginFunction(request):
     if not request.user.is_authenticated:
         if request.method == 'POST':
             form = LoginForm(request = request,data = request.POST)
-            print("before entering")
             # username = request.POST['username']
             # if '@gmail.com' in username:
             #         print(User.objects.all())
