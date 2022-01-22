@@ -6,10 +6,10 @@ class PreRegistration(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
-    password1 = models.CharField(max_length=100)
+    password1    = models.CharField(max_length=100)
     password2 = models.CharField(max_length=100)
     otp = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.username
+        return self.first_name+" "+self.last_name
     

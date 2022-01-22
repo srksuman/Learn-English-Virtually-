@@ -7,7 +7,7 @@ from django.core import validators
 
 def validate_username(value):
     if len(value)<=2:
-        raise forms.ValidationError(f"Your username cannot be of {len(value)}  word")
+        raise forms.ValidationError(f"Your username cannot be of {len(value)}  letters")
 
 def validate_email(value):
     email = User.objects.filter(email=value)
@@ -44,7 +44,9 @@ class ChangePasswordUserForm(PasswordChangeForm):
 class UserUpdateForm(UserChangeForm):
     password = None
     email = forms.CharField(widget=forms.EmailInput(attrs={"required":True,"Placeholder":"Email",'autocomplete':'username','id':'email','disabled':True}),validators=[validate_email])
-
+    first_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"First Name","required":True,'id':'fname'}),error_messages={"required":"First name cannot be empty"})
+    last_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder":"Last Name","required":True,'id':'lname'}),error_messages={"required":"Last name cannot be empty"})
+    
     class Meta:
         model = User
         fields = ['username','first_name','last_name','email','last_login','date_joined']
