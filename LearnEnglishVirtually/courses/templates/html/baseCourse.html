@@ -1,0 +1,45 @@
+<!doctype html>
+{% load static %}
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>LEV | Education</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    
+    <!-- CSS here -->
+    {% include 'html/cssLink.html' %}
+    
+</head>
+
+<body>
+    <!-- ? Preloader Start -->
+    {% include 'html/preloader.html' %}
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        {% include 'html/header.html' %}
+        <!-- Header End -->
+    </header>
+
+    <main>
+       {% block mainContent %}{% endblock mainContent %}
+    </main>
+    
+    <footer>
+     {% include 'html/footer.html' %}
+  </footer> 
+
+  <!-- Scroll Up -->
+  <div id="back-top" >
+    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+
+<!-- JS here -->
+{% include 'html/jsLinks.html' %}
+
+</body>
+</html>
