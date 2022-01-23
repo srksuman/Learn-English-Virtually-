@@ -15,11 +15,12 @@
                             <!-- Main-menu -->
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
-                                    <ul id="navigation">                                                                                          
-                                        <li class="active" ><a href="index.html">Home</a></li>
-                                        <li><a href="courses.html">Courses</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                    <ul id="navigation">   
+                                                                                                                              
+                                        <li class="active" ><a href="{% url 'mainCourse'  %}">Home</a></li>
+                                        <li><a href="{% url 'courseContent'  %}">Courses</a></li>
+                                        <li><a href="{% url 'aboutPage'  %}">About</a></li>
+                                        <li><a href="{% url 'contactPage'  %}">Contact</a></li>
                                         <!-- Button -->
                                         <li class="button-header margin-left "><a href="#" class="btn">Join</a></li>
                                         <li class="button-header"><a href="login.html" class="btn btn3">Log in</a></li>
