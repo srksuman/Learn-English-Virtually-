@@ -21,4 +21,5 @@ urlpatterns = [
     path('',include('authentication.urls')),
     path('',include('chatbot.urls')),
     path('',include('courses.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]

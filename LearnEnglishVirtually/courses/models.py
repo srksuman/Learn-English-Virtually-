@@ -15,10 +15,10 @@ class MainContent(models.Model):
         return str(self.topic)
     
 
-class SubContent(models.Model):
+# class SubContent(models.Model):
 #     topic = models.ForeignKey(MainContent, on_delete=models.CASCADE)
-    sub_topic = models.CharField(max_length=200)
-    content = RichTextField()
+    # sub_topic = models.CharField(max_length=200)
+    # content = RichTextField()
 
 #     def __str__(self):
 #         return str(self.topic.topic)

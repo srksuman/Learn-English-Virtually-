@@ -148,3 +148,12 @@ JAZZMIN_SETTINGS = {
     "hide_models": ['auth.user','auth.group','authentication.PreRegistration'],
     # "site_logo": "img/logo/logo.png",
 }
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+CKEDITOR_CONFIGS = {
+    'default': {
+        'height': 500,
+        'width': 600,
+    },
+}
