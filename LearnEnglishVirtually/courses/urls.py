@@ -5,5 +5,5 @@ urlpatterns = [
     path('contactPage/',contactPage,name="contactPage"),
     path('aboutPage/',aboutPage,name='aboutPage'),
     path('courseContent/',courseContent,name='courseContent'),
-    path('particularCourse/<int:id>/',particularCourse,name= 'particularCourse')
+    path('particularCourse/<slug>/',particularCourse,name= 'particularCourse')
 ]

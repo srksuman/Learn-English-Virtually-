@@ -2,24 +2,25 @@
 <!--jquery-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--table js-->
-<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+{% comment %} <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script> {% endcomment %}
 
 <!--table-->
-<script>
+{% comment %} <script>
     $(document).ready(function () {
         $('#myTable').DataTable();
     });
-</script>
+</script> {% endcomment %}
 
 <script>
     $(document).ready(function(){
-        console.log("suman");
+     
         $('#search').on('keyup',function(){
             var searchTerm = $(this).val().toLowerCase();
             $('.searchContent').each(function(){
                 var blockString = $(this).text().toLowerCase();
                 if(blockString.indexOf(searchTerm)===-1){
                     $(this).hide();
+                    console.log()
                     
                 }else{
                     $(this).show();
@@ -34,7 +35,7 @@
 
 <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
 <!-- Jquery, Popper, Bootstrap -->
-{% comment %} <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script> {% endcomment %}
+<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <!-- Jquery Mobile Menu -->

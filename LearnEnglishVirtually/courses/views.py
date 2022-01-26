@@ -28,8 +28,8 @@ def courseContent(request):
     
     return render(request,'html/courses.html',context)
 
-def particularCourse(request,id):
-    allCourses = MainContent.objects.get(id=id)
+def particularCourse(request,slug):
+    allCourses = MainContent.objects.get(slug=slug)
     context = {
     'TopPageName':f'{allCourses.id}. {allCourses.topic}',
     'pageName':'Courses',
