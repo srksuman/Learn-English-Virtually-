@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .models import MainContent
+from django.urls import reverse
+
 # Create your views here.
 def mainCoursePage(request):
     return render(request,'html/index.html')
@@ -24,6 +26,7 @@ def courseContent(request):
     'TopPageName':"Our Courses",
     'pageName':'Courses',
     'allCourses':allCourses,
+    
     }
     
     return render(request,'html/courses.html',context)
