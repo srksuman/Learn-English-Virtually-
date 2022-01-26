@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -136,3 +137,13 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'learnenglishvirtually2078@gmail.com' 
 EMAIL_HOST_PASSWORD = 'mgraicxyvcsucbbh'
+
+JAZZMIN_SETTINGS = {
+ "site_title": "Learn English Virtually Admin",
+    "site_header": "LEV",
+    "site_brand": "Learn English Virtually",
+    "welcome_sign": "English Practicing Platform",
+    "copyright": "Learn English Virtually",
+    "hide_models": ['auth.user','auth.group','authentication.PreRegistration'],
+    # "site_logo": "img/logo/logo.png",
+}
