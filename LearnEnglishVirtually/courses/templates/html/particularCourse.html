@@ -1,0 +1,15 @@
+{% extends "html/baseCourse.html" %}
+{% load static %}
+
+{% block mainContent %}
+<section class="slider-area slider-area2">
+    {% include 'html/topBreadcrumb.html' %}
+</section>
+
+<!-- Courses area End -->
+<!--? top subjects Area Start -->
+<!--table-->
+<div class="container mb-4 mt-2">
+    {{allCourses.content|safe}}
+</div>
+{% endblock mainContent %}

@@ -1,27 +1,72 @@
 {% extends "html/baseCourse.html" %}
 {% load static %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+{% endblock css %}
+
 {% block mainContent %}
 <section class="slider-area slider-area2">
     {% include 'html/topBreadcrumb.html' %}
 </section>
 <div class="section-tittle text-center mb-55">
     <h2>Course Contents</h2>
+    <div class="search">
+        <div class="search-box text-center">
+            <button class="btn-search"><i class="fas fa-search"></i></button>
+            <input type="text" class="input-search" id='search' placeholder="Type to Search...">
+          </div>
+    </div>
 </div>
+
 <!-- Courses area End -->
 <!--? top subjects Area Start -->
 <!--table-->
-<div class="container mb-4">
+
+
+<div class="services-area mt-4">
+    <div class="container">
+        <div class="row justify-content-sm-center ">
+            {% for course  in allCourses %}
+            <div class="col-lg-4 col-md-6 col-sm-8 w-50 h-100 searchContent" id='{{course.id}}' >
+                <div class="single-services mb-30" style="height: 120px !important;">
+                    <div class="features-caption">
+                        <h3> <b><a href="{% url 'particularCourse' course.id %}" class="text-primary">{{course.id}}. {{course.topic}}</a></b></h3>
+                        <p>{{course.sub_topic}}</p>
+                        <p class="text-success">Estimated Time: {{course.estimated_time}} hours</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% comment %} <div class="col-lg-3 col-md-6 col-sm-8">
+                <div class="single-services mb-30">
+                    <div class="features-icon">
+                      
+                    </div>
+                    <div class="features-caption">
+                        <h3>Sentences</h3>
+                        <p><br><br></p>
+                    </div>
+                </div>
+            </div> {% endcomment %}
+           
+        </div>
+    </div>
+</div>
+
+<!--
+
+    <div class="container mb-4">
     <table id="myTable" class="display" style="width:100%">
     <thead>
         <tr>
             <th>ID</th>
             <th>Topic</th>
-            <th>Sub Topic</th>
+            {% comment %} <th>Sub Topic</th> {% endcomment %}
         </tr>
     </thead>
     <tbody>
-        <tr>
+        {% comment %} <tr>
             <td>1</td>
             <td>Adjective</td>
 
@@ -37,9 +82,9 @@
                 </div>
 
             </td>
-        </tr>
+        </tr> {% endcomment %}
 
-        <tr>
+        {% comment %} <tr>
             <td>1</td>
             <td>Adjective</td>
 
@@ -55,25 +100,15 @@
                 </div>
 
             </td>
-        </tr>
+        </tr> {% endcomment %}
 
-
+        {% for course  in allCourses %}
         <tr>
-            <td>2</td>
-            <td>Word</td>
-
-
-            <td>
-
-
-                <a href="https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_js_dropdown_hover"
-                    target="_blank"> Word: The Definition & Criteria</a>
-
-
-            </td>
-
+            <td>{{course.id}}</td>
+            
+            <td><b><a href="{% url 'particularCourse' course.id %}" class="text-primary">{{course.topic}}</a></b></td>
         </tr>
-
+        {% endfor %}
 
 
     </tbody>
@@ -81,11 +116,16 @@
         <tr>
             <th>ID</th>
             <th>Topic</th>
-            <th>Sub Topic</th>
+            {% comment %} <th>Sub Topic</th> {% endcomment %}
 
 
         </tr>
     </tfoot>
 </table>
+
+-->
+
 </div>
+
+
 {% endblock mainContent %}
