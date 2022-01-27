@@ -10,10 +10,10 @@ class TestManagement(models.Model):
     pass_marks = models.FloatField(help_text="Passmarks for test")
 
     def __str__(self):
-        return self.topic
+        return f'{self.topic}'
 
     def get_questions(self):
-        return questions_set.all()
+        return questions_set.all()[:self.number_of_questions]
 
     class Meta:
         verbose_name_plural ="Test Management"
@@ -39,7 +39,7 @@ class Answers(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"question:{self.questions.text} answer: {self.text} correct: {self.correct}"
+        return f"question:{self.questions.text} answer: {self.text} correct: {self.correct_answer}"
     
     class Meta:
         verbose_name_plural ="Test Answers"

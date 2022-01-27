@@ -8,4 +8,3 @@ from .models import PreRegistration
 @admin.register(PreRegistration)
 class PreRegistrationAdmin(admin.ModelAdmin):
     list_display=['first_name','last_name']
-
