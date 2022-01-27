@@ -24,4 +24,15 @@ class Questions(models.Model):
 
     def get_answers(self):
         pass
+
+
+class Answers(models.Model):
+    text = models.CharField(max_length=200)
+    correct_answer = models.BooleanField(default=True,null=True)
+    questions = models.ForeignKey(Questions,on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"question:{self.questions.text} answer: {self.text} correct: {self.correct}"
     
+
