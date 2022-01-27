@@ -15,6 +15,9 @@ class TestManagement(models.Model):
     def get_questions(self):
         return questions_set.all()
 
+    class Meta:
+        verbose_name_plural ="Test Management"
+
     
 class Questions(models.Model):
     text = models.CharField(max_length=200)
@@ -26,6 +29,8 @@ class Questions(models.Model):
     def get_answers(self):
         return self.answers_set.all()
 
+    class Meta:
+        verbose_name_plural ="Test Questions"
 
 class Answers(models.Model):
     text = models.CharField(max_length=200)
@@ -36,8 +41,16 @@ class Answers(models.Model):
     def __str__(self):
         return f"question:{self.questions.text} answer: {self.text} correct: {self.correct}"
     
+    class Meta:
+        verbose_name_plural ="Test Answers"
 
 class Results(models.Model):
     test = models.ForeignKey(TestManagement,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     score = models.FloatField()
+    def __str__(self):
+        return self.pk
+
+    class Meta:
+        verbose_name_plural ="Test Results"
+    
