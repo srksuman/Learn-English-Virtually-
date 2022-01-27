@@ -1,5 +1,6 @@
 from django.db import models
 from courses.models import MainContent
+from django.contrib.auth.models import User
 # Create your models here.s
 
 class TestManagement(models.Model):
@@ -12,7 +13,7 @@ class TestManagement(models.Model):
         return self.topic
 
     def get_questions(self):
-        pass
+        return questions_set.all()
 
     
 class Questions(models.Model):
@@ -23,7 +24,7 @@ class Questions(models.Model):
         return self.text
 
     def get_answers(self):
-        pass
+        return self.answers_set.all()
 
 
 class Answers(models.Model):
@@ -36,3 +37,7 @@ class Answers(models.Model):
         return f"question:{self.questions.text} answer: {self.text} correct: {self.correct}"
     
 
+class Results(models.Model):
+    test = models.ForeignKey(TestManagement,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    score = models.FloatField()
