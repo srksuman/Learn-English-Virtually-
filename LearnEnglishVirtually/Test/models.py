@@ -34,7 +34,7 @@ class Questions(models.Model):
 
 class Answers(models.Model):
     text = models.CharField(max_length=200)
-    correct_answer = models.BooleanField(default=True,null=True)
+    correct_answer = models.BooleanField(default=False,null=True)
     questions = models.ForeignKey(Questions,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
