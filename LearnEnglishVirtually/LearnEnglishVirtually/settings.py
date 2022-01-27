@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'authentication',
     'courses',
     'chatbot',
+    'Test',
     'ckeditor',
 ]
 
