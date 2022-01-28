@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import loginFunction,registerFunction,home,verifyUser,changePassword,logoutFun,updateUserProfile
+from .views import loginFunction,registerFunction,home,verifyUser,changePassword,logoutFun,updateUserProfile,tryFun
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -15,5 +15,6 @@ urlpatterns = [
     path('password_reset_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='html/password_reset_complete_done.html'),name='password_reset_complete'), #password successfully changed message
     path('changePassword/',changePassword,name="changePassword"),
     path('updateUserProfile/',updateUserProfile,name="updateUserProfile"),
+    path('try/',tryFun,name='tryFun'),
 
 ]

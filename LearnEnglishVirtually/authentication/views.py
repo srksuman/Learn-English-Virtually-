@@ -173,3 +173,6 @@ def updateUserProfile(request):
     else:
         return HttpResponseRedirect('/login/')
 
+
+def tryFun(request):
+    return render(request,'html/try.html')
