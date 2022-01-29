@@ -12,7 +12,7 @@ class TestManagement(models.Model):
     required_score_to_pass = models.IntegerField(help_text="required score in %")
 
     def __str__(self):
-        return f"{self.name}-{self.topic}"
+        return f"{self.topic.topic}"
 
     def get_questions(self):
         questions = list(self.question_set.all())
@@ -43,10 +43,10 @@ class Answer(models.Model):
         return f"question: {self.question.text}, answer: {self.text}, correct: {self.correct}"
 
 class Result(models.Model):
-    TestManagement = models.ForeignKey(TestManagement,on_delete=models.CASCADE)
+    TestMgmt = models.ForeignKey(TestManagement,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     score = models.IntegerField()
 
     def __str__(self):
-        return self.TestManagement.topic
+        return self.TestMgmt.topic.topic
     

@@ -9,19 +9,19 @@ class TestManagementListView(ListView):
 
 def test_management_view(request, pk):
     testMgt = TestManagement.objects.get(pk=pk)
-    return render(request, 'TestManagement.html', {'obj': testMgt})
+    return render(request, 'html/quiz.html', {'obj': testMgt})
 
 def test_data_details_view(request, pk):
-    TestManagement = TestManagement.objects.get(pk=pk)
+    testMgmt = TestManagement.objects.get(pk=pk)
     questions = []
-    for q in TestManagement.get_questions():
+    for q in testMgmt.get_questions():
         answers = []
         for a in q.get_answers():
             answers.append(a.text)
         questions.append({str(q): answers})
     return JsonResponse({
         'data': questions,
-        'time': TestManagement.time,
+        'time': testMgmt.time,
     })
 
 
@@ -40,10 +40,10 @@ def save_test_management_view(request, pk):
         print(questions)
 
         user = request.user
-        TestManagement = TestManagement.objects.get(pk=pk)
+        testMgmt = TestManagement.objects.get(pk=pk)
 
         score = 0
-        multiplier = 100 / TestManagement.number_of_questions
+        multiplier = 100 / testMgmt.number_of_questions
         results = []
         correct_answer = None
 
@@ -66,9 +66,9 @@ def save_test_management_view(request, pk):
                 results.append({str(q): 'not answered'})
             
         score_ = score * multiplier
-        Result.objects.create(TestManagement=TestManagement, user=user, score=score_)
+        Result.objects.create(testMgmt=TestManagement, user=user, score=score_)
 
-        if score_ >= TestManagement.required_score_to_pass:
+        if score_ >= testMgmt.required_score_to_pass:
             return JsonResponse({'passed': True, 'score': score_, 'results': results})
         else:
             return JsonResponse({'passed': False, 'score': score_, 'results': results})
