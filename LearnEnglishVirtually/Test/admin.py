@@ -1,17 +1,13 @@
 from django.contrib import admin
-from .models import * 
-# Register your models here.
+from .models import Question, Answer, TestManagement, Result
 
-
-class AnswerTabularInline(admin.TabularInline):
-    model = Answers
+class AnswerInline(admin.TabularInline):
+    model = Answer
 
 class QuestionAdmin(admin.ModelAdmin):
-    inlines = [AnswerTabularInline]
+    inlines = [AnswerInline]
 
-admin.site.register(Questions,QuestionAdmin)
+admin.site.register(Question, QuestionAdmin)
+admin.site.register(Answer)
 admin.site.register(TestManagement)
-admin.site.register(Answers)
-admin.site.register(Results)
-
-
+admin.site.register(Result)

@@ -1,56 +1,52 @@
 from django.db import models
-from courses.models import MainContent
+import random
 from django.contrib.auth.models import User
-# Create your models here.s
+from courses.models import MainContent
+# Create your models here.
+
 
 class TestManagement(models.Model):
     topic = models.ForeignKey(MainContent,on_delete=models.CASCADE)
-    number_of_question = models.IntegerField()
-    time = models.FloatField(help_text="Duration of the test in minutes")
-    pass_marks = models.FloatField(help_text="Passmarks for test")
+    number_of_questions = models.IntegerField()
+    time = models.IntegerField(help_text="Duration of the TestManagement in minutes")
+    required_score_to_pass = models.IntegerField(help_text="required score in %")
 
     def __str__(self):
-        return f'{self.topic}'
+        return f"{self.name}-{self.topic}"
 
     def get_questions(self):
-        return questions_set.all()[:self.number_of_questions]
+        questions = list(self.question_set.all())
+        random.shuffle(questions)
+        return questions[:self.number_of_questions]
 
     class Meta:
-        verbose_name_plural ="Test Management"
+        verbose_name_plural = 'Test Management'
 
-    
-class Questions(models.Model):
+class Question(models.Model):
     text = models.CharField(max_length=200)
-    test = models.ForeignKey(TestManagement,on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    TestManagement = models.ForeignKey(TestManagement, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+
     def __str__(self):
-        return self.text
+        return str(self.text)
 
     def get_answers(self):
-        return self.answers_set.all()
+        return self.answer_set.all()
 
-    class Meta:
-        verbose_name_plural ="Test Questions"
-
-class Answers(models.Model):
+class Answer(models.Model):
     text = models.CharField(max_length=200)
-    correct_answer = models.BooleanField(default=False,null=True)
-    questions = models.ForeignKey(Questions,on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
+    correct = models.BooleanField(default=False)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"question:{self.questions.text} answer: {self.text} correct: {self.correct_answer}"
-    
-    class Meta:
-        verbose_name_plural ="Test Answers"
+        return f"question: {self.question.text}, answer: {self.text}, correct: {self.correct}"
 
-class Results(models.Model):
-    test = models.ForeignKey(TestManagement,on_delete=models.CASCADE)
+class Result(models.Model):
+    TestManagement = models.ForeignKey(TestManagement,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    score = models.FloatField()
-    def __str__(self):
-        return self.pk
+    score = models.IntegerField()
 
-    class Meta:
-        verbose_name_plural ="Test Results"
+    def __str__(self):
+        return self.TestManagement.topic
     
