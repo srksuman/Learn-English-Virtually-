@@ -24,6 +24,8 @@ def test_data_details_view(request, pk):
         'time': testMgmt.time,
     })
 
+def tryFun(request):
+    return render(request,'html/try.html')
 
 def save_test_management_view(request, pk):
     if request.method == "POST":

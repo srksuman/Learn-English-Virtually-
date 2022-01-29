@@ -6,4 +6,5 @@ urlpatterns = [
     path('testListView/<pk>/', test_management_view, name='quiz-view'),
     path('testListView/<pk>/save/', save_test_management_view, name='save-view'),
     path('testListView/<pk>/data/', test_data_details_view, name='quiz-data-view'),
+     path('try/',tryFun,name='tryFun'),
 ]
