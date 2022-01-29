@@ -2,12 +2,12 @@
 <div class="header-area header-transparent">
     <div class="main-header ">
         <div class="header-bottom  header-sticky">
-            <div class="container-fluid">
+            <div class="container-fluid ">
                 <div class="row align-items-center">
                     <!-- Logo -->
                     <div class="col-xl-2 col-lg-2">
                         <div class="logo">
-                            <a href="{% url 'mainCourse'  %}"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
+                            <a href="{% url 'mainCourse'  %}"><img src="{% static 'img/logo/epp2.png' %}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xl-10 col-lg-10">
@@ -17,15 +17,20 @@
                                 <nav>
                                     <ul id="navigation">   
                                                                                                                               
-                                        <li class="active" ><a href="{% url 'mainCourse'  %}">Home</a></li>
+                                        <li class="active " ><a href="{% url 'mainCourse'  %}" class="h1">Home</a></li>
                                         <li><a href="{% url 'courseContent'  %}">Courses</a></li>
                                         <li><a href="{% url 'aboutPage'  %}">About</a></li>
                                         <li><a href="{% url 'contactPage'  %}">Contact</a></li>
                                         <!-- Button -->
+                                        {% if request.user.is_authenticated %}
+                                        <li class="button-header margin-left "><a href="{% url 'reg' %}" class="btn">Profile</a></li>
+                                        <li class="button-header"><a href="{% url 'logout' %}" class="btn btn3">Logout</a></li>
+                                        {% else %}
                                         <li class="button-header margin-left "><a href="{% url 'reg' %}" class="btn">Join</a></li>
-                                        
                                         <li class="button-header"><a href="{% url 'login' %}" class="btn btn3">Log in</a></li>
-                                    </ul>
+
+                                        {% endif %}
+                                        </ul>
                                 </nav>
                             </div>
                         </div>
