@@ -9,7 +9,7 @@ class TestManagementListView(ListView):
 
 def test_management_view(request, pk):
     testMgt = TestManagement.objects.get(pk=pk)
-    return render(request, 'html/quiz.html', {'obj': testMgt})
+    return render(request, 'html/TestMgmt.html', {'obj': testMgt})
 
 def test_data_details_view(request, pk):
     testMgmt = TestManagement.objects.get(pk=pk)

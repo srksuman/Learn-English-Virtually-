@@ -1,4 +1,4 @@
-{% extends "html/baseQuiz.html" %}
+{% extends "html/baseTest.html" %}
 {% load static %}
 
 {% block scripts %}
@@ -38,7 +38,7 @@ home
         data-pk="{{obj.pk}}"
         data-quiz="{{obj.topic}}"
         data-questions="{{obj.number_of_questions}}"
-        data-difficulty="{{obj.difficluty}}"
+        data-subTopic="{{obj.topic.sub_topic}}"
         data-time="{{obj.time}}"
         data-pass = "{{obj.required_score_to_pass}}"
         data-toggle="modal"
