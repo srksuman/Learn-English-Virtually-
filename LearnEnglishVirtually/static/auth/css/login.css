@@ -59,6 +59,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     -ms-appearance: radio !important; }
   .header-area{
     background: linear-gradient(to bottom, #c054ff 0%, #5274ff 100%);
+    
   }
   img {
     max-width: 100%;
