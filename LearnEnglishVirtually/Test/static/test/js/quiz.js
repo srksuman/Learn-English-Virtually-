@@ -81,7 +81,7 @@ const csrf = document.getElementsByName('csrfmiddlewaretoken')
 
 const sendData = () => {
     const elements = [...document.getElementsByClassName('ans')]
-    const data = {}
+    const data = {} 
     data['csrfmiddlewaretoken'] = csrf[0].value
     
     elements.forEach(el=>{

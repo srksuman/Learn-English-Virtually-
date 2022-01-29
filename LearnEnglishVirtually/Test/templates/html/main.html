@@ -30,20 +30,20 @@ home
   </div>
 </div>
 
-<div class="h1">Quiz List</div>
+<div class="h1">Test Content</div>
 <hr>
 {% for obj in object_list %}
     <button
         class="btn btn-link modal-button"
         data-pk="{{obj.pk}}"
-        data-quiz="{{obj.name}}"
+        data-quiz="{{obj.topic}}"
         data-questions="{{obj.number_of_questions}}"
         data-difficulty="{{obj.difficluty}}"
         data-time="{{obj.time}}"
         data-pass = "{{obj.required_score_to_pass}}"
         data-toggle="modal"
         data-target="#quizStartModal">
-        {{obj.name}}
+        {{obj.topic}}
     </button><br>
 
 {% endfor %}

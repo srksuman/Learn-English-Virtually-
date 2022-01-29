@@ -27,6 +27,7 @@ def test_data_details_view(request, pk):
 
 def save_test_management_view(request, pk):
     if request.method == "POST":
+        print(request.POST)
         questions = []
         data = request.POST
         data_ = dict(data.lists())
@@ -66,7 +67,7 @@ def save_test_management_view(request, pk):
                 results.append({str(q): 'not answered'})
             
         score_ = score * multiplier
-        Result.objects.create(testMgmt=TestManagement, user=user, score=score_)
+        Result.objects.create(TestMgmt=testMgmt, user=user, score=score_)
 
         if score_ >= testMgmt.required_score_to_pass:
             return JsonResponse({'passed': True, 'score': score_, 'results': results})

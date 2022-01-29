@@ -48,5 +48,5 @@ class Result(models.Model):
     score = models.IntegerField()
 
     def __str__(self):
-        return self.TestMgmt.topic.topic
+        return f"Topic: {self.TestMgmt.topic.topic} \t Answer:- {self.user.username} \t Score:- {self.score}"
     
