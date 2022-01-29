@@ -11,7 +11,7 @@ def test_management_view(request, pk):
     testMgt = TestManagement.objects.get(pk=pk)
     return render(request, 'TestManagement.html', {'obj': testMgt})
 
-def test_details_view(request, pk):
+def test_data_details_view(request, pk):
     TestManagement = TestManagement.objects.get(pk=pk)
     questions = []
     for q in TestManagement.get_questions():
