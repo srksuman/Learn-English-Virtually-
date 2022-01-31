@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'auth/css/login.css' %}">
+{% endblock css %}
+
+{% block content %}
+<section class="sign-in">
+    <div class="container2">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="{% static 'auth/images/signin-image.jpg' %}" alt="sing up image"></figure>
+                <a href="{% url 'reg' %}" class="signup-image-link text-primary underline" ><u> Create an account</u></a>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">Sign In</h2>
+                <form method="POST" class="register-form" id="login-form" novalidate>
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        {{form.username}}
+                        <small class="text-danger font-italic">{{form.username.errors|striptags}}</small>
+                        
+                       
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                        
+                         {{form.password}}
+                         <small class="text-danger font-italic">{{form.password.errors|striptags}}</small>
+                         
+                    </div>
+                    <small class="text-danger font-italic">{% for error in  form.non_field_errors  %}
+                    {{error}}
+                    {% endfor %}</small>
+                    
+                    <div class="form-group">
+                        {% comment %} <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" /> {% endcomment %}
+                        <label for="remember-me" class="label-agree-term"><span><span></span></span><a href="{% url 'password_reset' %}" class="text-primary">Forget Password?</a></label>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

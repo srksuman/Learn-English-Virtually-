@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% include 'breadcrumb.html' %}
+<div class="container mb-4 mt-2" id="mainCont">
+    {{allCourses.content|safe}}
+</div>
+{% endblock content %}
+
+{% block js %}
+
+<script src="{% static 'course/js/image_responsive.js' %}"></script>
+{% endblock js %}

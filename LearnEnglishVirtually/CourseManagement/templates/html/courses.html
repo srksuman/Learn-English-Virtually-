@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'search/css/search.css' %}">
+{% endblock css %}
+
+{% block content %}
+{% include 'breadcrumb.html' %}
+
+<div class="section-tittle text-center mb-55">
+    <h2>Course Contents</h2>
+    <div class="search">
+        <div class="search-box text-center">
+            <button class="btn-search"><i class="fas fa-search"></i></button>
+            <input type="text" class="input-search" id='search' placeholder="Type to Search...">
+          </div>
+    </div>
+</div>
+
+<div class="services-area mt-4">
+    <div class="container">
+        <div class="row justify-content-sm-center ">
+            {% for course  in allCourses %}
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 w-50 h-100 searchContent" id='{{course.id}}' >
+                <div class="single-services mb-30" style="height: 120px !important;">
+                    <div class="features-caption">
+                        <h3> <b><a href="{% url 'particularCourse' course.slug %}" class="text-primary">{{course.id}}. {{course.topic}}</a></b></h3>
+                        <p>{{course.sub_topic}}</p>
+                        <p class="text-success">Estimated Time: {{course.estimated_time}} hours</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+<script src="{% static 'search/js/search.js' %}"></script>
+{% endblock js %}

@@ -1,0 +1,58 @@
+{% load static %}
+<div class="header-area header-transparent">
+    <div class="main-header ">
+        <div class="header-bottom  header-sticky">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <!-- Logo -->
+                    <div class="col-xl-2 col-lg-2">
+                        <div class="logo">
+                            <a href="{% url 'main'  %}"><img src="{% static 'img/logo/epp.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-10 col-lg-10">
+                        <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                            <!-- Main-menu -->
+                            <div class="main-menu d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">  
+                                                                                                                               
+                                        <li class="active" ><a href="{% url 'main'  %}">Home</a></li>
+                                        <li><a href="{% url 'course'  %} ">Courses</a></li>
+                                        <li><a href="{% url 'about'  %} ">About</a></li>
+                                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                                        {% if request.user.is_authenticated %}
+                                        <li><a href="#">More</a>
+                                            <ul class="submenu">
+                                                <li><a href="{% url 'main-view'  %}">Take Test</a></li>
+                                                <li><a href="#">View Progress</a></li>
+                                                <li><a href="{% url 'changePassword'  %}">Change Password</a></li>
+                                                <li><a href="{% url 'updateUserProfile'  %}">Update Profile</a></li>
+                                                 
+                                            </ul>
+                                        </li>
+                                        {% endif %}
+                                        
+                                        
+                                        <!-- Button -->
+                                        {% if request.user.is_authenticated %}
+                                        <li class="button-header"><a href="#" class="btn ">Chat with AI</a></li>
+                                        <li class="button-header"><a href="{% url 'logout'  %}" class="btn btn3">Logout</a></li>
+                                        {% else %}
+                                        <li class="button-header"><a href="{% url 'reg'  %}" class="btn ">Join Us</a></li>
+                                        <li class="button-header"><a href="{% url 'login'  %}" class="btn btn3">Sign  In</a></li>
+                                        {% endif %}   
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div> 
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

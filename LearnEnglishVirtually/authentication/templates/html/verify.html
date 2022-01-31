@@ -1,0 +1,54 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}<link rel="stylesheet" href="{% static 'auth/css/login.css' %}">{% endblock css %}
+{% block content %}
+ <section class="sign-in">
+            <div class="container2">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="{% static 'auth/images/otp.jpg' %}" alt="sing up image"></figure>
+                        <a href="{% url 'reg' %}" class="signup-image-link text-primary"><b><u>Register</u></b></a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Verify OTP</h2>
+                        <form method="POST" class="register-form" id="login-form" novalidate>
+                        {% csrf_token %}
+                            <div class="form-group">
+                                <label for="your_name"></label>
+                                {{form.otp}}
+                                <small class="text-danger font-italic">{{form.otp.errors|striptags}}</small>
+                                
+                          
+                            </div>
+                          
+                            <small class="text-danger font-italic">{% for error in  form.non_field_errors  %}
+                            {{error}}
+                            {% endfor %}</small>
+                            
+                         
+                            <div class="form-group form-button">
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="Verify"/>
+                            </div>
+                        </form>
+                        <div class="mt-3">
+                          {% if messages %}
+                          {% for msg in messages  %}
+                          
+                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{msg}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                          
+                          {% endfor %}
+                          {% endif %}
+                          
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock content %} 
