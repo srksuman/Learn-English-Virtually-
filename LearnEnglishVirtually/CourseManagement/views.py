@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .models import MainContent,EnglishDictionary
 import random
 from PyDictionary import PyDictionary
+import json
+
 # Create your views here.
 
 def mainCoursePage(request):
@@ -9,14 +11,20 @@ def mainCoursePage(request):
     #     for line in fil:
     #         word = line.strip()
     #         EnglishDictionary.objects.create(word = word)
-    # try:
-    list_of_words = [j for i in EnglishDictionary.objects.values_list('word') for j in i]
-    word = random.sample(list_of_words,1)[0]
-    print(word)
-    dictionary=PyDictionary()
-    print (dictionary.meaning(word))
-    # except:
-    #     pass
+    try:
+        list_of_words = [j for i in EnglishDictionary.objects.values_list('word') for j in i]
+        word = random.sample(list_of_words,1)[0]
+        print(word)
+        dictionary=PyDictionary()
+        print (dictionary.meaning(word))
+    except:
+        pass
+
+    # f=open("data.js")
+    # data = json.load(f)
+    # for i in data:
+        # print(i['id'])
+        # MainContent.objects.create(id=i['id'],topic = i['topic'],content = i['content'],estimated_time=i['estimated_time'],sub_topic=i['sub_topic'])
     # print (dictionary.synonym(word))
     # print (dictionary.antonym(word))
     return render(request,'html/index.html')
@@ -53,3 +61,7 @@ def particularCourse(request,slug):
     'allCourses':allCourses,
     }
     return render(request,'html/particularCourse.html',context)
+
+
+def studentProgress(request):
+    return render(request,'html/progress.html')
