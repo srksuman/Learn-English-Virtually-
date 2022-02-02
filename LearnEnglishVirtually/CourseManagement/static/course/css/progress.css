@@ -6659,7 +6659,7 @@
     margin-top: -1rem !important; }
   
   .mt-n4 {
-    margin-top: -1.5rem !important; }
+    margin-top: -2px !important; }
   
   .mt-n5 {
     margin-top: -3rem !important; }
@@ -7186,7 +7186,7 @@
   
   /* rtl:end:remove */
   .text-primary {
-    color: #e91e63 !important; }
+    color: #355866 !important; }
   
   .text-secondary {
     color: #7b809a !important; }
@@ -14069,11 +14069,11 @@
         font-size: 0.875rem; }
   
   .icon-lg {
-    width: 64px;
-    height: 64px; }
+    width: 40px;
+    height: 40px; }
     .icon-lg i {
-      top: 1%;
-      font-size: 4rem; }
+      top: -8%;
+      font-size: 3rem; }
     .icon-lg.icon-striped {
       background-position-x: 111px;
       background-position-y: 111px; }
@@ -14234,10 +14234,10 @@
     border-radius: 0.5rem; }
   
   .border-radius-xl {
-    border-radius: 1.75rem; }
+    border-radius: -0.25rem; }
   
   .border-radius-2xl {
-    border-radius: 1rem; }
+    border-radius: -0.25rem; }
   
   .border-radius-section {
     border-radius: 10rem; }
