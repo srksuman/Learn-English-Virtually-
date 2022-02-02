@@ -67,14 +67,38 @@ def particularCourse(request,slug):
 def studentProgress(request):
     result = Result.objects.filter(user=request.user)
     number_of_test_given = len(result)
-    print(result.count())
+    # print(result.count())
     # print(Result.objects.latest('id'))
 
     #find the testmanagement id when test are qizen and how many times
     name_of_topic = ''
     name_of_topic_num = 0
     count_number_of_particular_given_test = {}
+    
+ 
+    list_of_time_passed = []
+    list_of_time_failed = []
+    list_of_topic_passed_failed = []
+
+    list_of_given_test = []
+    list_of_given_test_score_highest=[]
+    list_of_given_test_score_lowest=[]
+    collect_topic_object_length = 0
     try:
+        #how many time a user passed or failed a particular topic
+        collect_topic_object = list(dict.fromkeys([ i.TestMgmt for i in result]))
+        collect_topic_object_length = len(collect_topic_object)
+        list_of_topic_passed_failed += [i.topic.topic for i in collect_topic_object]
+        list_of_given_test += list_of_topic_passed_failed
+        for i in collect_topic_object:
+            list_of_given_test_score_highest.append(max([i.score for i in Result.objects.filter(score__gte = 50, user = request.user,TestMgmt=i)]))
+            list_of_given_test_score_lowest.append(max([i.score for i in Result.objects.filter(score__lt = 49, user = request.user,TestMgmt=i)]))
+            failed_times = len(Result.objects.filter(score__lt = 49, user = request.user,TestMgmt=i))
+            passed_times = len(Result.objects.filter(score__gte = 50, user = request.user,TestMgmt=i))
+            list_of_time_passed.append(passed_times)
+            list_of_time_failed.append(failed_times)
+
+
         number_of_test_given_with_id = [i['TestMgmt_id'] for i in list(result.values('TestMgmt_id'))]
         count_number_of_particular_given_test = {}
 
@@ -101,18 +125,11 @@ def studentProgress(request):
     
     list_of_topics_test_given = []
     list_of_times_test_given = []
+
     if len(count_number_of_particular_given_test)!=0:
-        list_of_times_test_given = list(count_number_of_particular_given_test.values())
+        list_of_times_test_given += list(count_number_of_particular_given_test.values())
         for i in count_number_of_particular_given_test.keys():
             list_of_topics_test_given.append(MainContent.objects.get(id=i).topic)
-
-    #how many time a user passed or failed a particular topic
-    
-
-
-    list_of_given_test = []
-    list_of_given_test_score=[]
-
 
 
     context = {
@@ -123,6 +140,16 @@ def studentProgress(request):
         'name_of_topic_num':name_of_topic_num,
         'list_of_topics_test_given':list_of_topics_test_given,
         'list_of_times_test_given':list_of_times_test_given,
+        'list_of_time_passed':list_of_time_passed ,
+        'list_of_time_failed':list_of_time_failed,
+        'list_of_topic_passed_failed':list_of_topic_passed_failed,
+        'list_of_given_test':list_of_given_test,
+        'list_of_given_test_score_highest':list_of_given_test_score_highest,
+        'list_of_given_test_score_lowest':list_of_given_test_score_lowest,
+        'collect_topic_object_length':collect_topic_object_length,
+        'range': range(collect_topic_object_length),
+        'zip_list':zip(list_of_given_test,list_of_time_passed,list_of_time_failed,
+        list_of_given_test_score_highest,list_of_given_test_score_lowest,)
     }
 
     return render(request,'html/progress.html',context)
