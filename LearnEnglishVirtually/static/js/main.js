@@ -389,10 +389,10 @@ $('.courses-actives').slick({
     new WOW().init();
 
 
-    function mailChimp() {
-      $('#mc_embed_signup').find('form').ajaxChimp();
-    }
-    mailChimp();
+    // function mailChimp() {
+    //   $('#mc_embed_signup').find('form').ajaxChimp();
+    // }
+    // mailChimp();
 
 
 
@@ -433,11 +433,11 @@ $('.courses-actives').slick({
 
 
 
-  $('#bar1').barfiller();
-  $('#bar2').barfiller();
-  $('#bar3').barfiller();
-  $('#bar4').barfiller();
-  $('#bar5').barfiller();
-  $('#bar6').barfiller();
+  // $('#bar1').barfiller();
+  // $('#bar2').barfiller();
+  // $('#bar3').barfiller();
+  // $('#bar4').barfiller();
+  // $('#bar5').barfiller();
+  // $('#bar6').barfiller();
 
 })(jQuery);

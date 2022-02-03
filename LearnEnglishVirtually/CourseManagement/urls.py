@@ -8,5 +8,7 @@ urlpatterns = [
     path('course/',courseContent,name='course'),
     path('progress/',studentProgress,name='progress'),
     path('particularCourse/<slug>/',particularCourse,name= 'particularCourse'),
+    path('word/',getDictionaryWord,name='word'),
+    path('fact/',getFacts,name='fact'),
 
 ]

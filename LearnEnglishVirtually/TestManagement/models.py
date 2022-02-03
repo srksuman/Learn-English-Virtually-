@@ -1,6 +1,7 @@
 from django.db import models
 import random
 from django.contrib.auth.models import User
+from scipy import rand
 from CourseManagement.models import MainContent
 # Create your models here.
 
@@ -24,7 +25,7 @@ class TestManagement(models.Model):
 
 class Question(models.Model):
     text = models.CharField(max_length=200)
-    TestManagement = models.ForeignKey(TestManagement, on_delete=models.CASCADE)
+    TestMgmt = models.ForeignKey(TestManagement, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

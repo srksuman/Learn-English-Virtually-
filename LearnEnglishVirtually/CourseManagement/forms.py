@@ -1,5 +1,9 @@
 from django import forms
-from matplotlib.widgets import Widget
+from django.core import validators
+
+# def validate_email(value):
+
+
 
 class ContactForm(forms.Form):
         message = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control valid',"onfocus":"this.placeholder = ''","onblur":"this.placeholder = 'Enter Message'" ,"placeholder":" Enter Message","required":True,"name":"message","id":"message"}),error_messages={"required":"um...yea, you have to write something to send this form."})
