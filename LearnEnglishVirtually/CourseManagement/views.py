@@ -1,9 +1,14 @@
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from .models import MainContent,EnglishDictionary
 import random
 from PyDictionary import PyDictionary
 import json
+from django.conf import settings
+from django.core.mail import send_mail
+from .forms import ContactForm
 from TestManagement.models import Result
+from django.contrib import messages
 
 # Create your views here.
 
@@ -30,12 +35,35 @@ def mainCoursePage(request):
     # print (dictionary.antonym(word))
     return render(request,'html/index.html')
 
-def contactPage(request):
-    context = {
-    'TopPageName':"Contact Us",
-    'pageName':'Contact'
-    }
-    return render(request,'html/contact.html',context)
+def contactPage(request): 
+    if request.method == "POST":
+        message = request.POST['message']
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['Subject']
+        form = ContactForm(request.POST)
+        
+        if form.is_valid():
+            email_message=f"""
+            Name: {name}
+            Message: {message}
+            Email: {email}
+            """
+            messages.info(request,f"Dear! {name} your message has been received we'll get back you shortly!!!")
+            send_mail(
+            f'Message From LEV:- {subject}',
+            email_message,
+            settings.EMAIL_HOST_USER,
+            [settings.EMAIL_HOST_USER],
+            fail_silently=False,
+            )
+            return HttpResponseRedirect('/contact/')
+
+    else:
+        form = ContactForm()
+    return render(request,'html/contact.html',{
+        'form':form,
+         })
 
 def aboutPage(request):
     context = {
@@ -147,9 +175,11 @@ def studentProgress(request):
         'list_of_given_test_score_highest':list_of_given_test_score_highest,
         'list_of_given_test_score_lowest':list_of_given_test_score_lowest,
         'collect_topic_object_length':collect_topic_object_length,
-        'range': range(collect_topic_object_length),
         'zip_list':zip(list_of_given_test,list_of_time_passed,list_of_time_failed,
         list_of_given_test_score_highest,list_of_given_test_score_lowest,)
     }
 
     return render(request,'html/progress.html',context)
+
+
+
