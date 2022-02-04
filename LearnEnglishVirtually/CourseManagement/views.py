@@ -118,6 +118,8 @@ def contactPage(request):
             form = ContactForm(initial=initial_dict)
         return render(request,'html/contact.html',{
             'form':form,
+            'TopPageName':"Contact Us",
+            'pageName':'Contact'
             }) 
     else:
         if request.method == "POST":
@@ -147,6 +149,8 @@ def contactPage(request):
             form = ContactForm()
         return render(request,'html/contact.html',{
             'form':form,
+            'TopPageName':"Contact Us",
+            'pageName':'Contact'
             })
 
 def aboutPage(request):
@@ -171,6 +175,7 @@ def particularCourse(request,slug):
     context = {
     'TopPageName':f'{allCourses.id}. {allCourses.topic}',
     'pageName':'Courses',
+    'subPage':slug.capitalize(),
     'allCourses':allCourses,
     }
     return render(request,'html/particularCourse.html',context)

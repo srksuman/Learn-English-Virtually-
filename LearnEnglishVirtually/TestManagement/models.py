@@ -1,7 +1,6 @@
 from django.db import models
 import random
 from django.contrib.auth.models import User
-from scipy import rand
 from CourseManagement.models import MainContent
 # Create your models here.
 

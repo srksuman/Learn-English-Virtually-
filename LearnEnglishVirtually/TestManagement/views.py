@@ -16,14 +16,25 @@ from .models import *
 def testManagement(request):
     if request.user.is_authenticated:
         object_list = TestManagement.objects.all()
-        return render(request,'html/content.html',{'object_list':object_list})
+        context = {
+            'TopPageName':'Test Contents',
+            'pageName':'Content',
+            'object_list':object_list
+            }
+        return render(request,'html/content.html',context)
     else:
         return HttpResponseRedirect('/')
 
 def test_management_view(request, pk):
     if request.user.is_authenticated:
         testMgt = TestManagement.objects.get(pk=pk)
-        return render(request, 'html/TestMgmt.html', {'obj': testMgt})
+        context = {
+            'TopPageName':f'{pk}. {testMgt.topic.topic}',
+            'pageName':'Content',
+            'subPageTest':testMgt.topic.topic,
+            'obj': testMgt
+            }
+        return render(request, 'html/TestMgmt.html', context)
     else:
         return HttpResponseRedirect('/')
 
