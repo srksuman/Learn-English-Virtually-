@@ -6,6 +6,9 @@ urlpatterns = [
     path('contact/',contactPage,name="contact"),
     path('about/',aboutPage,name='about'),
     path('course/',courseContent,name='course'),
+    path('progress/',studentProgress,name='progress'),
     path('particularCourse/<slug>/',particularCourse,name= 'particularCourse'),
+    path('word/',getDictionaryWord,name='word'),
+    path('fact/',getFacts,name='fact'),
 
 ]

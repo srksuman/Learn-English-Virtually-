@@ -111,9 +111,12 @@ const sendData = () => {
 
             results.forEach(res=>{
                 const collapseDiv = document.getElementById('collapseBtn');
-                collapseDiv.innerHTML = ` <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                collapseDiv.innerHTML = ` <a class="btnn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                 View Test Details
-              </a> `
+              </a> 
+              
+              `
+              console.log("Hello")
                 const resDiv = document.createElement("div")
                 for (const [question, resp] of Object.entries(res)){
 

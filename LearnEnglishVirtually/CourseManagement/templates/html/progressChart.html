@@ -1,0 +1,289 @@
+<script>
+var ctx = document.getElementById("chart-bars").getContext("2d");
+
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: [{% for i in list_of_topics_test_given %}'{{i}}',{% endfor %}],
+        datasets: [{
+          label: "Test Given",
+          tension: 0.4,
+          borderWidth: 0,
+         
+          borderSkipped: false,
+          backgroundColor: "rgba(255, 255, 255, .8)",
+          data: {{list_of_times_test_given}},
+          maxBarThickness: 10
+        }, ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+              color: "#fff"
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 1
+              },
+            }
+          },
+        },
+      },
+    });
+
+
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+    new Chart(ctx2, {
+      type: "bar",
+      data: {
+        labels: [{% for i in list_of_topic_passed_failed %}'{{i}}',{% endfor %}],
+        datasets: [{
+          label: "Passed",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          borderWidth: 0,
+          borderSkipped: false,
+          pointBackgroundColor: "rgba(53, 57, 177, 0.8)",
+          pointBorderColor: "rgba(53, 57, 177, 0.8)",
+          borderColor: "rgba(53, 57, 177, 0.8)",
+          borderColor: "rgba(53, 57, 177, 0.8)",
+          borderWidth: 2,
+          backgroundColor: "rgba(53, 57, 177, 0.8)",
+          fill: true,
+          data: {{list_of_time_passed}},
+          maxBarThickness: 15
+
+        },
+
+        {
+          label: "Failed",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          borderWidth: 0,
+          borderSkipped: false,
+          pointBackgroundColor: "rgba(230, 0, 27, 0.8)",
+          pointBorderColor: "rgba(230, 0, 27, 0.8)",
+          borderColor: "rgba(230, 0, 27, 0.8)",
+          borderColor: "rgba(230, 0, 27, 0.8)",
+          borderWidth: 2,
+          backgroundColor: "rgba(230, 0, 27, 0.8)",
+          fill: true,
+          
+          data: {{list_of_time_failed}},
+          maxBarThickness: 15
+
+        },
+
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: true,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 1
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+
+    var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
+
+    new Chart(ctx3, {
+      type: "line",
+      data: {
+        labels: [{% for i in list_of_given_test  %}'{{i}}',{% endfor %}],
+        datasets: [{
+          label: "Highest",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          pointBackgroundColor: "rgba(255, 255, 255, .8)",
+          pointBorderColor: "transparent",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderWidth: 1,
+          backgroundColor: "transparent",
+          fill: true,
+          data: {{list_of_given_test_score_highest}},
+          maxBarThickness: 6
+
+        },
+
+        {
+          label: "Lowest",
+          tension: 0,
+          borderWidth: 0,
+          pointRadius: 5,
+          pointBackgroundColor: "rgba(255, 255, 255, .8)",
+          pointBorderColor: "transparent",
+          borderColor: "rgba(255, 255, 255, .8)",
+          borderWidth: 1,
+          backgroundColor: "transparent",
+          fill: true,
+          data:{{list_of_given_test_score_lowest}},
+          maxBarThickness: 6
+
+        },
+        
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: '#f8f9fa',
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 1
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+  </script>
