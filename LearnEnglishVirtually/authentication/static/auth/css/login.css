@@ -58,6 +58,7 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     -o-appearance: radio !important;
     -ms-appearance: radio !important; }
   .header-area{
+<<<<<<< HEAD
     /* background: linear-gradient(to bottom, #c054ff 0%, #5274ff 100%); */
     background-image: url(../../../../static/img/hero/hero2.png);
     
@@ -66,6 +67,11 @@ display-flex, .display-flex, .display-flex-center, .signup-content, .signin-cont
     color: rgb(26, 115, 131);
   }
   
+=======
+    background: linear-gradient(to bottom, #c054ff 0%, #5274ff 100%);
+    
+  }
+>>>>>>> 0b58238f4c450e8c1d406ac068becfdcfe648fe9
   img {
     max-width: 100%;
     height: auto; }

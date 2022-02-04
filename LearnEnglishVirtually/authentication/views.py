@@ -124,7 +124,6 @@ def verifyUser(request):
         return HttpResponseRedirect('/success/')
 
 
-
 def logoutFun(request):
     logout(request)
     return HttpResponseRedirect('/login/')

@@ -1,0 +1,60 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: how nd who made you
+  steps:
+  - intent: info_bot
+  - action: utter_info_bot
+
+- story:  who made you
+  steps:
+  - intent: who_made_info
+  - action: utter_who_made_info
+
+- story: how you are made
+  steps:
+  - intent: how_made
+  - action: utter_how_made
+
+- story: happy greetingsOne
+  steps:
+  - intent: greetingsOne
+  - action: utter_greetingsOne
+
+- story: happy greetingsTwo
+  steps:
+  - intent: greetingsTwo
+  - action: utter_greetingsTwo
+
+- story: happy greetingsThree
+  steps:
+  - intent: greetingsThree
+  - action: utter_greetingsThree
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
