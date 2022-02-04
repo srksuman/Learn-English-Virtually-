@@ -39,15 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication',
-<<<<<<< HEAD
     'conversational_ai',
     'CourseManagement',
     'TestManagement',
-=======
-    'courses',
-    'chatbot',
-    'Test',
->>>>>>> 0b58238f4c450e8c1d406ac068becfdcfe648fe9
     'ckeditor',
 ]
 
@@ -66,11 +60,7 @@ ROOT_URLCONF = 'LearnEnglishVirtually.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-<<<<<<< HEAD
         'DIRS': [BASE_DIR/'templates'],
-=======
-        'DIRS': [BASE_DIR/'templates',BASE_DIR/'courses/templates/html'],
->>>>>>> 0b58238f4c450e8c1d406ac068becfdcfe648fe9
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -162,13 +152,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD
 # STATIC_ROOT = BASE_DIR/'static'
 STATICFILES_DIRS = [BASE_DIR / "static"]
-=======
-STATIC_ROOT = BASE_DIR/'static'
-STATICFILES_DIRS = [BASE_DIR / "checkstatic/static/"]
->>>>>>> 0b58238f4c450e8c1d406ac068becfdcfe648fe9
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -176,10 +161,6 @@ STATICFILES_DIRS = [BASE_DIR / "checkstatic/static/"]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 0b58238f4c450e8c1d406ac068becfdcfe648fe9
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
