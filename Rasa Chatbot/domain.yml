@@ -14,11 +14,17 @@ intents:
   - info_bot
   - who_made_info
   - how_made
+  - ArtificialIntelligence
+  - helloWorld
 
 responses:
   utter_who_made_info:
   - text: "Data scientist Mr.Suman Raj Khanal made me!!. To view full details [Click me](http://sumanrajkhanal.com.np/)"
     image: "https://pbs.twimg.com/profile_images/1307239678999814144/AazSZxIL_400x400.jpg"
+
+  utter_ArtificialIntelligence:
+  - text: Artificial Intelligence is the branch of engineering and science devoted to constructing machines that think. For more [Click here](https://en.wikipedia.org/wiki/Artificial_intelligence)
+  - text: AI is the field of science which concerns itself with building hardware and software that replicates the functions of the human mind. For more [Click here](https://en.wikipedia.org/wiki/Artificial_intelligence)
 
   utter_how_made:
   - text: "Im made using python Programmng language"
@@ -69,8 +75,11 @@ responses:
   - text: "Bye"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "I am a bot, powered by Suman Raj Khanal."
 
+actions:
+- action_hello_world
+  
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

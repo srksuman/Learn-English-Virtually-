@@ -34,6 +34,16 @@ nlu:
   examples: |
      - What's up? 
 
+- intent: ArtificialIntelligence
+  examples: |
+      - What is AI?
+      - AI
+      - ai
+      - What is Artificial Intelligence?
+      - What do you mean by artificial intelligence?
+      - what is refered to ai?
+      - define ai
+
 - intent: info_bot
   examples: |
       - Who made you?
@@ -53,6 +63,7 @@ nlu:
        - rasa
        - are you made using ?
        - RASA-NLU
+       - What language are you written in?
        - Who are you?
 
 - intent: goodbye
@@ -122,6 +133,10 @@ nlu:
     - extremly sad
     - so saad
     - so sad
+
+- intent: helloWorld
+  examples: |
+    - helloworld
 
 - intent: bot_challenge
   examples: |

@@ -58,3 +58,13 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: what is ai
+  steps:
+  - intent: ArtificialIntelligence
+  - action: utter_ArtificialIntelligence
+
+- story: hello world
+  steps:
+  - intent: helloWorld
+  - action: action_hello_world
