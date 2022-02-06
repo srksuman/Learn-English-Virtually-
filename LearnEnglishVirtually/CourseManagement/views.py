@@ -18,7 +18,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 def mainCoursePage(request):
 
-
     # facts into database 
     # with open("facts.txt") as f:
         # print(f.readlines(),end="\n")
@@ -46,18 +45,10 @@ def mainCoursePage(request):
     # for i in course_topic:
     #     TestManagement.objects.create(topic = i, number_of_questions = 20,time = 20, required_score_to_pass = 50)
 
-    #code to add a question:
-    # test = TestManagement.objects.get(id=5)
-    # ques = "whta is your name mmmm?"
-    # ques = Question.objects.create(text = ques,TestMgmt = test )
-    # Answer.objects.create(text="123",correct = False,question=ques)
-    # Answer.objects.create(text="8",correct = False,question=ques)
-    # Answer.objects.create(text="4",correct = True,question=ques)
-
 
     #read file from js and keep it in database
 
-    # with open("question.js","r") as f:
+    # with open("question.json","r") as f:
     #     data = json.load(f)
     #     for i in data:
     #         get_dt = TestManagement.objects.filter(topic__topic=i['test'])
@@ -79,7 +70,6 @@ def mainCoursePage(request):
     # f=open("data.js")
     # data = json.load(f)
     # for i in data:
-        # print(i['id'])
         # MainContent.objects.create(id=i['id'],topic = i['topic'],content = i['content'],estimated_time=i['estimated_time'],sub_topic=i['sub_topic'])
     # print (dictionary.synonym(word))
     # print (dictionary.antonym(word))

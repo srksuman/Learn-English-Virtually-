@@ -50,14 +50,16 @@ $.ajax({
     url: `${url}data`,
     success: function(response){
         const data = response.data
+        let p = 1;
         data.forEach(el => {
             for (const [question, answers] of Object.entries(el)){
                 quizBox.innerHTML += `
                     <hr>
                     <div class="mb-2">
-                        <b>${question}</b>
+                        <b>${p}. ${question}</b>
                     </div>
                 `
+                p++;
                 answers.forEach(answer=>{
                     quizBox.innerHTML += `
                         <div>
@@ -65,6 +67,7 @@ $.ajax({
                             <label for="${question}">${answer}</label>
                         </div>
                     `
+                    
                 })
             }
             
