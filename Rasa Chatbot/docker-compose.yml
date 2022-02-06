@@ -3,7 +3,6 @@ services:
   rasa:
     build: .
     working_dir: /app
-    restart: always
     volumes:
     - ./:./app
     # - ./data:/app/data
@@ -14,10 +13,8 @@ services:
     - all
 
   rasa-actions-server:
-    image: rasa-bot:latest
+    build: .
     working_dir: /app
-    build: "./"
-    restart: always
     volumes:
     - ./actions:/app/actions
     - ./utils:/app/utils
