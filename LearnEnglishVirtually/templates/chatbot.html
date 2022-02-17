@@ -1,0 +1,46 @@
+{% load static %}
+<div class="chat-screen">
+    <div class="chat-header">
+        <div class="chat-header-title">
+            Let’s chat? - L.E.V
+        </div>
+      
+    </div>
+    
+    <div class="chat-body" style="overflow-y: scroll;height: 110px;scroll-behavior: smooth; ">
+        <div class="chat-start">Monday, 1:27 PM</div>
+        <div class="chat-bubble you">Welcome to our site, if you need help simply reply to this message, we are
+            online and ready to help.</div>
+        
+    </div>
+    <div class="chat-input ">
+        <form action="" method="#" id="form">
+            <input type="text" autocomplete="off" name="" value="" placeholder="Type a message..." id="message">
+            <div class="input-action-icon">
+                <button style="border:none;background-color: transparent;"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" style="color:blueviolet" stroke-linejoin="round"
+                        class="feather feather-send">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg></button>
+                <a></a>
+            </div>
+        </form>
+    </div>
+   
+</div>
+<div class="chat-bot-icon">
+    <img src="{% static 'chatbot/img/we-are-here.svg' %}" />
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-message-square animate">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="feather feather-x ">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+</div>

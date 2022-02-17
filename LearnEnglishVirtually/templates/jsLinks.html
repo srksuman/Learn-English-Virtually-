@@ -40,3 +40,103 @@
 <!-- Jquery Plugins, main Jquery -->	
 <script src="{% static 'js/plugins.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
+
+<!--chatbot-->
+<script>
+    $(document).ready(function () {
+        //Toggle fullscreen
+        $(".chat-bot-icon").click(function (e) {
+            $(this).children('img').toggleClass('hide');
+            $(this).children('svg').toggleClass('animate');
+            $('.chat-screen').toggleClass('show-chat');
+        });
+ 
+        $('.end-chat').click(function () {
+            $('.chat-body').addClass('hide');
+            $('.chat-input').addClass('hide');
+            $('.chat-session-end').removeClass('hide');
+            $('.chat-header-option').addClass('hide');
+        });
+    });
+
+</script>
+<script>
+    var form = document.getElementById('form');
+
+    const xhttp = new XMLHttpRequest();
+    let chat_body = document.querySelector('.chat-body')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let message = document.getElementById('message');
+        if (message.value.trim() != "") {
+
+            chat_body.innerHTML += `<div class="chat-bubble me">${message.value}</div>`
+
+            console.log(chat_body.scrollHeight)
+            chat_body.scrollTo(0, chat_body.scrollHeight);
+
+
+            xhttp.open("POST", "http://localhost:5005/webhooks/rest/webhook", true);
+            let data = {
+                message: message.value
+            }
+            xhttp.onprogress = function () {
+                console.log("waiting...");
+                chat_body.innerHTML += ` <div class="chat-bubble you" id="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                style="margin: auto;display: block;shape-rendering: auto;width: 43px;height: 20px;"
+                viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                <circle cx="0" cy="44.1678" r="15" fill="#ffffff">
+                    <animate attributeName="cy" calcMode="spline"
+                        keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite"
+                        values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.6s"></animate>
+                </circle>
+                <circle cx="45" cy="43.0965" r="15" fill="#ffffff">
+                    <animate attributeName="cy" calcMode="spline"
+                        keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite"
+                        values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.39999999999999997s">
+                    </animate>
+                </circle>
+                <circle cx="90" cy="52.0442" r="15" fill="#ffffff">
+                    <animate attributeName="cy" calcMode="spline"
+                        keySplines="0 0.5 0.5 1;0.5 0 1 0.5;0.5 0.5 0.5 0.5" repeatCount="indefinite"
+                        values="57.5;42.5;57.5;57.5" keyTimes="0;0.3;0.6;1" dur="1s" begin="-0.19999999999999998s">
+                    </animate>
+                </circle>
+            </svg>
+        </div>`
+            }
+
+
+
+            xhttp.onload = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    setTimeout(() => {
+                        try {
+                            let res = JSON.parse(this.responseText)[0]['text']
+                            chat_body.innerHTML += `<div class="chat-bubble you">${res}</div>`
+                            console.log(res)
+
+                        }
+                        catch {
+                            chat_body.innerHTML += `<div class="chat-bubble you">Sorry, I'm not able to help with this one. Try asking about English Learning.</div>`
+                        }
+                        finally {
+                            document.getElementById('hidden').remove();
+                        }
+                        chat_body.scrollTo(0, chat_body.scrollHeight);
+                    }, 3000)
+
+                    chat_body.scrollTo(0, chat_body.scrollHeight);
+                }
+            }
+            console.log(data)
+            xhttp.send(JSON.stringify(data))
+
+        }
+
+        message.value = ''
+    })
+</script>
+
+<!--end chtbot-->

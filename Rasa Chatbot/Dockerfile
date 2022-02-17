@@ -6,10 +6,24 @@
 # CMD /app/start_services.sh
 
 FROM ubuntu:20.04
+
 ENTRYPOINT []
+
 RUN apt-get update && apt-get install -y python3 python3-pip && python3 -m pip install --no-cache --upgrade pip && pip3 install --no-cache rasa==3.0.4
+
 WORKDIR /app
+
 COPY . .
+
+# RUN pip install -r requirements.txt
+
+# USER root
+
+# COPY ./actions /app/actions
+
+# USER 1000
+
+
 # RUN chmod +x /app/start_services.sh
 # RUN rasa train nlu
 # CMD /app/start_services.sh

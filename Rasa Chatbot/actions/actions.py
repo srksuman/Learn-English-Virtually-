@@ -11,8 +11,8 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-import requests
-import json
+# import requests
+# import json
 
 class ActionHelloWorld(Action):
 
@@ -22,10 +22,10 @@ class ActionHelloWorld(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        url = "https://apiforenglish.herokuapp.com/check/i is bad"
-        x = requests.get(url)
-        print(json.loads(x.text)['output'])
-        print("suman raj khanal -->",tracker.latest_message['text'])
-        dispatcher.utter_message(text=json.loads(x.text)['output'])
+        # url = "https://apiforenglish.herokuapp.com/check/i is bad"
+        # x = requests.get(url)
+        # print(json.loads(x.text)['output'])
+        # print("suman raj khanal -->",tracker.latest_message['text'])
+        dispatcher.utter_message(text="Hello World Suman")
 
         return []

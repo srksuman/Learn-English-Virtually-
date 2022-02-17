@@ -26,15 +26,21 @@
         
         {% endblock content %}
     </main>
-    
+    <!--chatbot-->
+    {% include 'chatbot.html' %}
+    <!--end of chatbto-->
     <footer>
      {% include 'footer.html' %}
   </footer> 
   
-  {% include 'gotoTop.html' %}
+  {% comment %} {% include 'gotoTop.html' %} {% endcomment %}
 
 
 {% include 'jsLinks.html' %}
 {% block js %}{% endblock js %}
+
+
+ 
+    
 </body>
 </html>
