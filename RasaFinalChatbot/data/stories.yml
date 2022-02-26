@@ -12,7 +12,7 @@ stories:
 - story:
   steps:
     - intent: ask_sentence
-    - intent: utter_ask_sentence
+    - action: utter_ask_sentence
     - intent: request_sentence
     - action: action_sentences
 

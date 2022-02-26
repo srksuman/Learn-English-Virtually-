@@ -70,18 +70,17 @@ class ActionSentences(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         text = tracker.latest_message.get('text').lower()
-        exact_word = text
-        
-        user_input = exact_word
+        print(text)
         content =''
         try:
-            content_user = wikipedia.page(user_input)
+            content_user = wikipedia.page(text)
             url = content_user.url
             con = content_user.content.split('\n\n')[0]
             content += f"{con}\n{url}"
         except:
             content = "Sorry, I'm not able to help with this one. "
     
+        print(content)
         dispatcher.utter_message(text= content)
 
         return []

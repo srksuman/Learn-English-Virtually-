@@ -65,10 +65,10 @@ slots:
 responses:
 
   utter_ask_word:
-    - text: Enter any word you are confused of.. Begin with "The word is .."" ?
+    - text: Sure! you can ask me. Enter any word/scentence you are confused of.. Begin with 'The word is ..' or 'I want to know about...'" ?
 
   utter_ask_sentence:
-    - text: "Sure! you can ask me..Please begin with 'I want to know ...'" 
+    - text: "Sure! you can ask me..Please begin with 'I want to know about...'" 
 
   # utter_submit:
   #   - text: Are you sure ? your word is 
@@ -164,7 +164,7 @@ responses:
   - text: I recommend 1.5- 2 hours a day practicing.
 
   utter_faq/where_do_i_start:
-    - text: Start with our courses and readand listen to things you find interesting. This way you'll grow your vocabulary. You can dive into grammar a bit later.
+    - text: Start with our courses and read and listen to things you find interesting. This way you'll grow your vocabulary. You can dive into grammar a bit later.
   utter_faq/tenses:
     - text: "There are only three main tenses: Past, Present and Future. In English, for each of them, we need to specify an aspect: Simple, Progressive, Perfect or Perfect Progressive. You can already start speaking and be understood by other people if you know only Past Simple, Present Simple and Future Simple!"
   utter_faq/language_barrier:

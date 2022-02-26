@@ -73,6 +73,11 @@ nlu:
     - Can you find me meaning of a word
     - word meaning
     - meaning of word
+    - I want to ask you a question
+    - i am confused on one topic
+    - can you answer me a question
+    - can i ask you a question
+    - i am confused on one question
 
 
 #CC3
@@ -429,22 +434,18 @@ nlu:
        - The word is 
        - word is 
        - word = 
-
-      #  - i am confused on one topic
-      #  - i am confused on one question
-      #  - can i ask you a question
-
-- intent: 
-
+       
 - intent: ask_sentence
   examples: |
     - I want to ask you a question
     - i am confused on one topic
     - can you answer me a question
+    - can i ask you a question
+    - i am confused on one question
 
 - intent: request_sentence
   examples: |
-    - I want to know
+    - I want to know about
     - i am confused of
 
 # - intent: find_word
