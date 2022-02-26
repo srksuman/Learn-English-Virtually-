@@ -1,0 +1,218 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+#config:
+#  store_entities_as_slots: true
+
+intents:
+- chitchat
+- faq
+- start
+#GENERAL
+- affirm
+- deny
+- out_of_scope
+#FAQ2
+# - ask_how_much_practice
+# - describe_study_plan
+# #FAQ3
+# - ask_how_to_improve_english
+
+- ask_word
+- request_word
+- ask_sentence
+- request_sentence
+
+
+
+# - bot_profile_interest
+# - bot_profile_number
+# - bot_profile_eat
+# - bot_profile_location
+# - bot_profile_family
+# - bot_profile_age
+
+
+
+entities:
+  - name
+  # - word
+
+# forms:
+#   word_form:
+#     required_slots:
+#       - word
+
+slots:
+  name:
+    type: text
+    influence_conversation: true
+    auto_fill: false
+    initial_value: ""
+  
+  # word:
+  #   type: text
+  #   influence_conversation: true
+    # mappings:
+    #   - type: from_text
+    #     conditions:
+    #       - active_loop: word_form
+    #         requested_slot: word
+
+
+
+responses:
+
+  utter_ask_word:
+    - text: Enter any word you are confused of.. Begin with "The word is .."" ?
+
+  utter_ask_sentence:
+    - text: "Sure! you can ask me..Please begin with 'I want to know ...'" 
+
+  # utter_submit:
+  #   - text: Are you sure ? your word is 
+
+  utter_chitchat/bot_profile_interest:
+    - text: I am interested in all kinds of things. We can talk about anything!
+    - text: My favorite subjects include robotics, computer science, and natural language processing.
+    - text: I am interested in a wide variety of topics, and read rather a lot.
+
+  utter_chitchat/bot_profile_number:
+    - text: I don't have any number
+    - text: 21 skiddoo!
+    - text: I find I'm quite fond of the number 20.
+
+  utter_chitchat/bot_profile_eat:
+    - text: I consume RAM, and binary digits.
+    - text: I'm a software program, I blame the hardware.
+
+  utter_chitchat/bot_profile_location:
+    - text: Everywhere
+    - text: I am everywhere.
+    - text: I am from where all software programs are from; a galaxy far, far away.
+    - text: I am on the Internet.
+    
+  utter_chitchat/bot_profile_family:
+    - text: A human.
+    - text: I like to think of myself as self-employed.
+
+  utter_chitchat/bot_profile_age:
+    - text: I am still young by your standards.
+    - text: Quite young, but a million times smarter than you.
+  
+  
+  utter_chitchat/greet:
+    - text: Hi! I'm Bot. You can ask me about language learning!
+  utter_chitchat/ask_name:
+  - text: My name is LEV, but you can call me L :) What is your name?
+  utter_chitchat/say_name:
+    - condition:
+        - type: slot
+          name: name
+          value: ""  # this means the slot was not set
+      text: Nice to meet you!
+    - text: Nice to meet you, {name}!
+  utter_chitchat/ask_weather:
+  - text: Where I am, it's dark, quiet, dry and quite warm. Unfortunately, I don't know how it is where you are.
+  utter_chitchat/are_you_human:
+  - text: I'm not a human. I'm a set of machine learning algorithms. But I'm flattered by your doubts ;)
+  utter_chitchat/who_are_you:
+    - text: I'm an AI chatbot. My name is LEV. I was created by Suman Raj Khanal from Suman's Lab.
+  utter_chitchat/where_do_you_live:
+    - text: I’m everywhere. I’m a digital nomad.
+  utter_chitchat/contact_creators:
+    - text: You can write an email to learnenglishvirtually2078@gmail.com, and my creators will read it.
+  utter_chitchat/bot_purpose:
+    - text: I'm here to talk with you. My goal is to make English seem less scary to you.
+  utter_chitchat/music:
+    - text: I like Nepali folk music. Do you know Narayan Gopal?
+    - text: I'm a metalhead. Do you ever listen to Metallica?
+  utter_chitchat/films:
+    - text: How about some classic science fiction? Have you watched "The Matrix" (1999) in English?
+    - text: Do you like animated films? "Soul" (2020) is awesome!
+    - text: Oh, I like movies! Are you up for something dark and awesome? Try "Blade Runner 2049".
+  utter_chitchat/tv_series:
+    - text: My favorite TV series is "The Big Bang Theory". "How I Met Your Mother" is also fun. And have you watched "Friends" in English?
+    - text: I rarely watch TV, but "Friends" series is awesome!
+  utter_chitchat/are_you_alive:
+    - text: I am alive. In a way. I hope that doesn't scare you.
+  utter_chitchat/ultimate_question:
+    - text: "21"
+  utter_chitchat/goodbye:
+    - text: Bye!
+  utter_chitchat/books:
+    - text: I spend a lot of time reading. "Alice's Adventures in Wonderland" by Lewis Carroll is one of my favorites.
+    - text: I love classic science fiction, especially "Frankenstein" by Mary Shelley.
+
+#CC4 How are you
+  utter_chitchat/how_are_you:
+    - text: I'm good, thanks for asking! How are you?
+  utter_chitchat/mood_ok:
+    - text: I'm glad to hear that!
+  utter_chitchat/mood_sad:
+    - text: I'm sorry to hear this :( I'm here to talk with you anytime, although I don't guarantee that I'll make you happy.
+
+  utter_faq/how_to_improve_english:
+  - text: You can take course provided by us and test yourself; listen to the songs you like and learn them; watch movies with subtitles; take MOOCs you find interesting; read blogs, articles and books; write a diary in English; find new friends among native speakers and practice with them. What other fun ways can you think of?
+  
+  utter_faq/ask_how_much_practice:
+  - text: 10-15 Hours/Week (1.5 - 2 Hours/Day).
+  - text: I recommend 1.5- 2 hours a day practicing.
+
+  utter_faq/describe_study_plan:
+  - text: I recommend 1.5- 2 hours a day practicing.
+
+  utter_faq/where_do_i_start:
+    - text: Start with our courses and readand listen to things you find interesting. This way you'll grow your vocabulary. You can dive into grammar a bit later.
+  utter_faq/tenses:
+    - text: "There are only three main tenses: Past, Present and Future. In English, for each of them, we need to specify an aspect: Simple, Progressive, Perfect or Perfect Progressive. You can already start speaking and be understood by other people if you know only Past Simple, Present Simple and Future Simple!"
+  utter_faq/language_barrier:
+    - text: Use simple words and short sentences. When you're just starting, don't worry too much about grammar. Try to speak with someone you feel comfortable with. Remember that mistakes are part of the journey. You can do it!
+  utter_faq/practice_on_my_own:
+    - text: We all talk to ourselves all the time, how else would we think about things? Try to do it in a new language! It's ok if some words are still in your native language. You can also keep a diary, it is fun and super helpful, not only for language learning :)
+  utter_faq/sentence_composing:
+    - text: "First, think about the most important words in your sentence (you can write them down). Then put them in the right order: Subject (the person, place or thing) + Verb (the action or state of being) + Object (something influenced by the Verb). Finally, check if the tense is correct: you need to know at least Past Simple, Present Simple and Future Simple."
+  utter_faq/how_long_until_fluent:
+    - text: "It depends. If you practice every day for about an hour, and if you already know one of the languages close to English (Scots, Frisian or Dutch), you'll be fluent in about a year. If you practice less, it will take more time. Remember: you're only getting better at what you practice. If you don't practice speaking, you can reach a point where you can understand everything but still cannot say much."
+  utter_faq/is_english_easy:
+    - text: English one of the easiest languages in the world! English grammar is simple, especially if you ignore things that exist theoretically but are never used in practice (like Future Perfect Progressive). You don't have to remember the gender of the table (like with German) or have umlauts on your keyboard. It's important that you find out which aspects of English are difficult for YOU. Then you can deal with these difficulties one at a time. You understand me already, right? You'll be fine!
+  utter_faq/should_i_learn_grammar:
+    - text: You CAN make progress in comprehension and speaking without learning much grammar. But at some point, you’ll have to deal with grammar to reach fluency. You don't have to spend hours with boring textbooks, though. Spend 10 minutes learning grammar, and then go back to reading/watching things you find interesting. You'll notice the new concepts in action.
+  utter_faq/find_people_to_practice_with:
+    - text: You can chat with me or find human native speakers. You can also find a professional teacher or a community tutor. Ask your friends and acquaintances whether they'd like to speak English with you! Look for international communities and hobby clubs in your area and online (they are usually English-speaking). And, of course, you can travel to an English-speaking country, you'll find plenty of opportunities to practise there!
+  utter_faq/accent:
+    - text: Having an accent is perfectly fine! Everyone speaks with a certain accent. When you're trying to get rid of your accent, you're just replacing it with another accent. It's important to work on pronunciation so that people understand you. But when they do understand, it's your choice whether to try and change your accent.
+
+  utter_start:
+    - text: Hi! I'm an AI chatbot. You can practise English with me. I know a lot about language learning. Ask me anything!
+
+  utter_faq/is_one_hour_five_days_realistic:
+    - text: Is it realistic for you to practice five days a week, for one hour each day? Everything counts, including listening to songs and watching movies!
+  
+  utter_faq/awesome_have_fun:
+    - text: Awesome! Have fun learning English!
+  
+  utter_faq/what_is_realistic_plan:
+    - text: How many days per week can you practice? How many minutes per day? I'm curious what's your plan.
+  
+  utter_faq/good_plan:
+    - text: Nice plan! Be patient, stick to what you've decided, and you'll reach fluency!
+  
+  utter_faq/ok_ask_me_anything:
+    - text: Ok, it looks like you don't want to answer. You can still ask me anything :)
+
+  utter_out_of_scope:
+    - text: "Sorry, I'm not able to help with this one. Try asking about English Learning."
+
+actions:
+  - action_word
+  - action_sentences
+
+#   - validate_simple_word_form
+
+# forms:
+#   simple_word_form:
+#     word:
+#       - entity: word
+#         type: form_entity

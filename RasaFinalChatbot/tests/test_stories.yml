@@ -1,0 +1,138 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+version: '2.0'
+
+# There is no point in writing "rules:" here, they are ignored.
+# In order to test ResponseSelector, split the training set
+
+stories:
+  #FAQ2
+  - story: how_much_practice_geek_path
+    steps:
+      - user: |
+          how much practise should I?
+        intent: ask_how_much_practice
+      - action: utter_is_one_hour_five_days_realistic
+      - user: |
+          yep, sure
+        intent: affirm
+      - action: utter_awesome_have_fun
+
+  - story: how_much_practice_amateur_path
+    steps:
+      - user: |
+          for how long should I study?
+        intent: ask_how_much_practice
+      - action: utter_is_one_hour_five_days_realistic
+      - user: |
+          ehm... no
+        intent: deny
+      - action: utter_what_is_realistic_plan
+      - user: |
+          maybe 3 days for 15 mins
+        intent: describe_study_plan
+      - action: utter_good_plan
+
+  - story: how_much_practice_blah_path
+    steps:
+      - user: |
+          for how long how often I study?
+        intent: ask_how_much_practice
+      - action: utter_is_one_hour_five_days_realistic
+      - user: |
+          blah i want a pizza
+        intent: out_of_scope
+      - action: utter_ok_ask_me_anything
+
+
+
+#DEFAULT TEST STORIES
+
+#- story: happy path 1
+#  steps:
+#  - user: |
+#      hello there!
+#    intent: greet
+#  - action: utter_greet
+#  - user: |
+#      amazing
+#    intent: mood_great
+#  - action: utter_happy
+#
+#- story: happy path 2
+#  steps:
+#  - user: |
+#      hello there!
+#    intent: greet
+#  - action: utter_greet
+#  - user: |
+#      amazing
+#    intent: mood_great
+#  - action: utter_happy
+#  - user: |
+#      bye-bye!
+#    intent: goodbye
+#  - action: utter_goodbye
+#
+#- story: sad path 1
+#  steps:
+#  - user: |
+#      hello
+#    intent: greet
+#  - action: utter_greet
+#  - user: |
+#      not good
+#    intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - user: |
+#      yes
+#    intent: affirm
+#  - action: utter_happy
+#
+#- story: sad path 2
+#  steps:
+#  - user: |
+#      hello
+#    intent: greet
+#  - action: utter_greet
+#  - user: |
+#      not good
+#    intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - user: |
+#      not really
+#    intent: deny
+#  - action: utter_goodbye
+#
+#- story: sad path 3
+#  steps:
+#  - user: |
+#      hi
+#    intent: greet
+#  - action: utter_greet
+#  - user: |
+#      very terrible
+#    intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - user: |
+#      no
+#    intent: deny
+#  - action: utter_goodbye
+#
+#- story: say goodbye
+#  steps:
+#  - user: |
+#      bye-bye!
+#    intent: goodbye
+#  - action: utter_goodbye
+#
+#- story: bot challenge
+#  steps:
+#  - user: |
+#      are you a bot?
+#    intent: bot_challenge
+#  - action: utter_iamabot

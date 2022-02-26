@@ -1,0 +1,71 @@
+version: "2.0"
+
+stories:
+
+- story:
+  steps:
+    - intent: ask_word
+    - action: utter_ask_word
+    - intent: request_word
+    - action: action_word
+
+- story:
+  steps:
+    - intent: ask_sentence
+    - intent: utter_ask_sentence
+    - intent: request_sentence
+    - action: action_sentences
+
+#FAQ2
+# - story: how_much_practice_geek_path
+#   steps:
+#     - intent: ask_how_much_practice
+#     - action: utter_is_one_hour_five_days_realistic
+#     - intent: affirm
+#     - action: utter_awesome_have_fun
+
+# - story: how_much_practice_amateur_path
+#   steps:
+#     - intent: ask_how_much_practice
+#     - action: utter_is_one_hour_five_days_realistic
+#     - intent: deny
+#     - action: utter_what_is_realistic_plan
+#     - intent: describe_study_plan
+#     - action: utter_good_plan
+
+# - story: how_much_practice_blah_path
+#   steps:
+#     - intent: ask_how_much_practice
+#     - action: utter_is_one_hour_five_days_realistic
+#     - intent: out_of_scope
+#     - action: utter_ok_ask_me_anything
+
+# - story: bot_profile_interest
+#   steps:
+#   - intent: bot_profile_interest
+#   - action: utter_bot_profile_interest
+
+# - story: bot_profile_number
+#   steps:
+#   - intent: bot_profile_number
+#   - action: utter_bot_profile_number
+
+# - story: bot_profile_eat
+#   steps:
+#   - intent: bot_profile_eat
+#   - action: utter_bot_profile_eat
+
+# - story: bot_profile_location
+#   steps:
+#   - intent: bot_profile_location
+#   - action: utter_bot_profile_location
+
+# - story: bot_profile_family
+#   steps:
+#   - intent: bot_profile_family
+#   - action: utter_bot_profile_family
+
+# - story: bot_profile_age
+#   steps:
+#   - intent: bot_profile_age
+#   - action: utter_bot_profile_age

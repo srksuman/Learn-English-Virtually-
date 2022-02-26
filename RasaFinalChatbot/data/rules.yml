@@ -1,0 +1,64 @@
+version: "2.0"
+
+rules:
+- rule: respond to FAQs
+  steps:
+  - intent: faq
+  - action: utter_faq
+
+- rule: respond to chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+
+- rule: say hi at start
+  steps:
+    - intent: start
+    - action: utter_start
+
+- rule: out-of-scope
+  steps:
+    - intent: nlu_fallback
+    - action: utter_out_of_scope
+
+# - rule: Activate word form
+#   steps:
+#   - intent: ask_word
+#   - action: ask_word_form
+#   - active_loop: ask_word_form
+
+# - rule: Submit word form
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: ask_word_form
+#   steps:
+#   # Form is deactivated
+#   - action: ask_word_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   # The actions we want to run when the form is submitted.
+#   - action: utter_submit
+#   - action: utter_word_values
+
+
+# - rule: Activate form
+#   steps:
+#   - intent: request_word
+#   - action: word_form
+#   - active_loop: word_form
+
+
+# - rule: Submit form
+#   condition:
+#   # Condition that form is active.
+#   - active_loop: word_form
+#   steps:
+#   # Form is deactivated
+#   - action: word_form
+#   - active_loop: null
+#   - slot_was_set:
+#     - requested_slot: null
+#   # The actions we want to run when the form is submitted.
+#   - action: utter_submit
+#   # - action: utter_slots_values

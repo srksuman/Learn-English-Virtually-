@@ -1,0 +1,461 @@
+version: "2.0"
+nlu:
+- intent: chitchat/greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - hola
+
+- intent: chitchat/ask_name
+  examples: |
+    - What is your name?
+    - May I know your name?
+    - What do people call you?
+    - Do you have a name for yourself?
+
+- intent: chitchat/say_name #TODO: add MANY names
+  examples: |
+    - My name is [Bob](name)
+    - You can call me [Lindsey](name)
+    - I am [Erik](name)
+    - I'm [Ursula](name)
+    - Call me [Joe](name)
+    - I'm [Koen](name)
+    - It's [Violetta](name)
+    - Call me [Nazli](name)
+    - I'm [Jeyana](name)
+    - I am [Semra](name)
+    - [Earth](name)
+    - [Mathias](name)
+    - I'm [Matthijs](name)
+    - [Lewis](name)
+
+- intent: chitchat/ask_weather
+  examples: |
+    - What's the weather like today?
+    - Does it look sunny outside today?
+    - Oh, do you mind checking the weather for me please?
+    - I like sunny days in Berlin.
+
+- intent: chitchat/are_you_human
+  examples: |
+    - are you a human?
+    - you're sure you're a bot?
+    - am I talking to a human?
+    - are you a bot?
+    - you're too smart
+
+#CC1
+- intent: chitchat/who_are_you
+  examples: |
+    - who is this?
+    - who are you?
+    - who am I speaking with?
+    - what are you?
+    - who are you after all?
+
+- intent: ask_word
+  examples: |
+    - I want to ask a word
+    - I want to find a wordmeanig
+    - Confused on some word
+    - Can you find me meaning of a word
+    - word meaning
+    - meaning of word
+
+
+#CC3
+- intent: chitchat/where_do_you_live
+  examples: |
+    - where do you live?
+    - where are you?
+    - where are you now?
+    - from where are you writing?
+    - where is your office?
+
+- intent: chitchat/contact_creators
+  examples: |
+    - how do I contact your creators?
+    - how to contact the programmer?
+    - how to speak to your gods?
+    - i'd like to speak to you creator
+    - i want to complain about you
+    - i have a complaint
+    - i'd like to change you
+    - how can i change you?
+    - how do i write to team TalkingHeads
+    - what's your email?
+    - what's your creator's email?
+    - is there a god?
+    - do you believe in god?
+
+#CC5
+- intent: chitchat/bot_purpose
+  examples: |
+    - what is your purpose?
+    - what's your goal?
+    - why do you exist?
+
+#CC6
+- intent: chitchat/music #TODO: turn into a set of stories
+  examples: |
+    - what kind of music do you like?
+    - recommend me some music
+    - what music do you listen to?
+    - do you like music?
+    - what's your favourite song?
+    - who's your favourite singer?
+    - do you enjoy listening to music?
+
+#CC7
+- intent: chitchat/films
+  examples: |
+    - can you recommend me a film?
+    - I'd like to watch a movie
+    - do you like movies?
+    - do you watch films?
+    - how about a good movie?
+    - some other film
+
+#CC8
+- intent: chitchat/tv_series
+  examples: |
+    - what's your favourite tv series?
+    - do you watch tv?
+    - recommend me a series
+    - recommend me a sitcom
+    - what's some good series for English practice?
+
+#CC8
+- intent: chitchat/are_you_alive
+  examples: |
+    - are you alive?
+    - do you wish you were alive?
+    - are you alive?
+
+- intent: chitchat/ultimate_question
+  examples: |
+    - the ultimate question of life, the universe and everything?
+    - what's the meaning of life?
+    - what's the point of everything?
+    - how many roads must a man walk down?
+    - what's the meaning of universe and everything?
+    - what's the point of everything?
+
+- intent: chitchat/goodbye
+  examples: |
+    - I'm off
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: chitchat/books
+  examples: |
+    - recommend me a book
+    - do you like to read?
+    - do you read books?
+    - are you a book lover?
+    - what do you read?
+
+#CC4 How are you
+- intent: chitchat/how_are_you
+  examples: |
+    - how are you?
+    - how are you doing?
+    - what's up?
+    - how do you do?
+    - what's up with you?
+
+- intent: chitchat/mood_ok
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - super
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - good
+    - I'm good
+    - I'm ok
+    - I'm fine
+    - I'm happy
+    - very happy
+    - calm and happy
+    - relaxed
+    - ok
+
+- intent: chitchat/mood_sad
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremely sad
+    - so saad
+    - so sad
+
+#FAQ3
+- intent: faq/how_to_improve_english # TODO: turn into a set of stories
+  examples: |
+    - What daily activities can improve my language level?
+    - What can I do to improve my language level?
+    - Tips on language level improvement?
+    - Can you give me a piece of advice on how to improve my language level?
+    - how do I improve my English?
+    - how to learn to speak English better?
+    - How can I improve my vocabulary?
+    - What can I do to improve my vocabulary?
+    - My vocabulary needs improvement. Got any advice?
+    - Got any advice on vocabulary improvement?
+
+#FAQ4
+- intent: faq/where_do_i_start
+  examples: |
+    - where do I start?
+    - how do I start learning English?
+    - how do I start?
+    - what should I start with?
+    - how to start learning?
+    - where do I begin?
+    - I don't know what to do first
+
+#FAQ5
+- intent: faq/tenses
+  examples: |
+    - what are the basic tenses in English?
+    - English main tenses?
+    - what are the main tenses?
+    - how many verb tenses are there?
+    - verb tenses in English?
+    - which tenses do I need to know?
+
+#FAQ8
+- intent: faq/language_barrier
+  examples: |
+    - How do I overcome the language barrier?
+    - I struggle with language barriers, please help.
+    - Help me overcome my language barrier.
+    - I am afraid to start speaking.
+    - How do I start speaking?
+
+#FAQ9
+- intent: faq/practice_on_my_own
+  examples: |
+    - How can I practice my verbal speech by myself?
+    - I don’t know how to practice my verbal speech by myself.
+    - Can I practice by speaking to myself?
+    - Should I try to talk to myself?
+    - How can I practice speaking on my own?
+    - Is it weird if I talk to myself?
+    - How can I practice alone?
+
+#FAQ10
+- intent: faq/sentence_composing
+  examples: |
+    - How can I practice sentence composing?
+    - Advice on sentence composing?
+    - How do I construct sentences?
+    - How to put sentences together?
+    - How to put words together into a sentence?
+
+#FAQ11 TODO: turn into a form
+- intent: faq/how_long_until_fluent
+  examples: |
+    - how long does it take to learn a language?
+    - when will i be fluent?
+    - when will i speak fluently?
+    - when will i speak English well?
+    - how long until i stop making mistakes?
+    - when i fluent
+
+#FAQ12
+- intent: faq/is_english_easy
+  examples: |
+    - Is English an easy language?
+    - Is it easy to learn English?
+    - Is English difficult?
+    - Is learning English hard?
+    - Is English grammar difficult?
+
+#FAQ14
+- intent: faq/should_i_learn_grammar
+  examples: |
+    - Do I have to learn English grammar?
+    - Do I really have to learn English grammar?
+    - English grammar seems difficult, can I not learn it at all?
+    - can I do without grammar?
+    - can I learn vocabulary only?
+    - Do I need to know grammar?
+
+#FAQ17
+- intent: faq/find_people_to_practice_with
+  examples: |
+    - how do i find real people to practice with?
+    - where do i find real people to speak to?
+    - where do i find native speakers?
+    - with whom can I speak English?
+
+#FAQ18
+- intent: faq/accent
+  examples: |
+    - I have an accent. Is it a problem?
+    - Is having an accent a problem?
+    - should I get rid of my accent?
+    - can I get rid of my accent?
+    - how do I avoid my accent?
+    - is having an accent terrible?
+    - is my accent terrible?
+    - what if I have an accent?
+    - I’m ashamed of my accent
+
+# GENERAL
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sure
+    - of course
+    - you bet
+    - I did
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - I didn't
+    - nope
+
+- intent: out_of_scope
+  examples: |
+    - that's not what I want to do
+    - wait stop
+    - you are no help
+    - this is no help at all
+    
+
+# FAQ2
+- intent: faq/ask_how_much_practice
+  examples: |
+    - how much should i practice?
+    - for how long should i study?
+    - how many hours should i study?
+    - how often should i practice?
+    - is five minutes of practice enough?
+
+- intent: faq/describe_study_plan
+  examples: |
+    - two days per week, 30 minutes per day
+    - once a week, fifteen minutes
+    - three days, one hour
+    - two days, 2 hours
+    - I guess 2 days, half an hour
+    - I think 3 days, twenty mins
+
+
+- intent: chitchat/bot_profile_interest
+  examples: |
+     - What are your interests
+     - What are your favorite subjects
+
+- intent: chitchat/bot_profile_number
+  examples: |
+     - What is your number
+     - What is your favorite number
+
+- intent: chitchat/bot_profile_eat
+  examples: |
+      - What can you eat
+      - what you will eat
+
+- intent: chitchat/bot_profile_location
+  examples: |
+      - What is your location
+      - Where are you from
+      - Where are you
+
+- intent: chitchat/bot_profile_family
+  examples: |
+      - Who is your father
+      - Who is your mother
+      - Who is your boss
+
+- intent: chitchat/bot_profile_age
+  examples: |
+      - What is your age
+      - your age
+
+- intent: request_word
+  examples: |
+       - The word is 
+       - word is 
+       - word = 
+
+      #  - i am confused on one topic
+      #  - i am confused on one question
+      #  - can i ask you a question
+
+- intent: 
+
+- intent: ask_sentence
+  examples: |
+    - I want to ask you a question
+    - i am confused on one topic
+    - can you answer me a question
+
+- intent: request_sentence
+  examples: |
+    - I want to know
+    - i am confused of
+
+# - intent: find_word
+#   examples: |
+#         - find [new](word) for me.
+#         - what is [old](word)
+#         - can you please [new](word) for me
+
+
+
+
+
+
+
